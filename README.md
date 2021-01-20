@@ -98,12 +98,15 @@
   - 斯密斯原图与共轭有什么关系？
   - 阻抗匹配：功率（共轭），信号一致（相等或成比例）。
   - RF变压器MABAES0010中出现的斯密斯圆图，需要看懂。
+  - 当前工艺下，各种关键参数的极限在哪里（输入阻抗，输入offset电压，输出压摆率）。
 - 轴承<https://luyaku.pixnet.net/blog/post/344239039-pc%E6%95%A3%E7%86%B1%E9%A2%A8%E6%89%87%E4%B9%8B%E7%A0%94%E7%A9%B6%E5%9B%9B%EF%BC%9A%E9%A2%A8%E6%89%87%E8%BB%B8%E6%89%BF>
   - 滚珠（ball）
   - 油封（sleeve）
   - 磁悬浮-（vapo）-MF80251V1-1000U-A99<http://portal.sunon.com.tw/pls/portal/sunonap.sunon_html_d_pkg.open_file?input_file_name=7264646F632F3230313531302F3231383034302F28443038303632373830472D3030292D302E706466>
 - SPI接口通信协议分析：SPI时序、2线、3线、4线SPI及4种常用工作模式<https://www.cirmall.com/articles/32784>
   - 用verilog，写一个SPI软核，然后再写一个测试的。
+- 理解MOSFET时间相关及能量相关输出电容Coss(tr)和Coss(er)-刘松-万国半导体元件(深圳)有限公司
+  - 他说不能用积分，但其实他也是拆解为很小的模块，也是积分。也就是将积分过程的解析解变为数值解而已。
 
 硬件相关算法
 
