@@ -116,4 +116,6 @@
 - MOS 管最大功率，热阻，最大电流之间的关系。
 - 使用IGBT的二极管测试junction温度。
 - FOM
-- RC IGBT
+- RC IGBT？？
+- GTR，IGBT
+- 孔径时间、孔径抖动、孔径延迟时间——正本清源, 作者：Walt Kester, MT-007 TUTORIAL analog devices
