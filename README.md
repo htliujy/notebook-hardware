@@ -119,3 +119,4 @@
 - RC IGBT？？
 - GTR，IGBT
 - 孔径时间、孔径抖动、孔径延迟时间——正本清源, 作者：Walt Kester, MT-007 TUTORIAL analog devices
+- 用KiCAD做图算了！
