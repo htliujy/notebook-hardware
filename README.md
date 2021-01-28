@@ -94,6 +94,7 @@
 - 运放
   - 单电源，双电源
   - offset，bias
+  - 斩波放大器<https://mp.weixin.qq.com/s/6keT1Qw3WQIHscnQ-d6vCg>
 - 斯密斯圆图<http://www.360doc.com/content/16/0610/15/32066980_566502324.shtml>
   - 斯密斯原图与共轭有什么关系？
   - 阻抗匹配：功率（共轭），信号一致（相等或成比例）。
