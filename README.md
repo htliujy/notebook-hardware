@@ -41,7 +41,6 @@
 
 灌封胶，真空度
 
-- ATX（Advanced Technology Extended）主板规格由英特尔公司在1995年制定。
 - 读懂开关管datasheet
   - Normalized 归一化参数
   - IV的SOA和温升-时间曲线
