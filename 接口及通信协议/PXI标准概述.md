@@ -11,6 +11,7 @@
 | COTS     | Commercial off-the-shelf (commercially available off-the-shelf) | 商业现货                                                          |
 | VXI      | VME eXtensions for Instrumentation                              | 一种仪器总线规范                                                  |
 | Eurocard | European Packaging Specifications                               |                                                                   |
+| PICMG    | PCI Industrial Computer Manufacturers Group                     |                                                                   |
 
 ## 什么是PXI
 
@@ -90,6 +91,8 @@ PXI Express is an adaptation of PCI Express to the PXI form factor, developed in
 
 从图中可以看出，机械结构和硬件结构基本是在CompactPCI的基础上添加新的特性。因此，许多标准，比如板卡结构，应该是去CompactPCI找对应的标准了。  
 
+不过，下文中很少出现CompactPCI相关的文档，因为他们家（ [PICMG](https://www.picmg.org/) ）提供的说明书太贵了，比如 [Keying of CompactPCI® Boards and Backplanes Specification](https://www.picmg.org/product/keying-compactpci-boards-backplanes-specification/) 就要750美刀。相比起来，PXI的说明书免费下载，不要太爽。
+
 软件上，PXI系统定义了：
 
 1. 操作系统
@@ -131,17 +134,17 @@ PXI Express is an adaptation of PCI Express to the PXI form factor, developed in
 
 图中有多个不同的槽（slot），包含：
 
-- 系统槽（PXI Express System Slot）：系统板卡槽，一般在机箱的左边，通常占用4个槽的宽度，标准的PXIE可以是Windows软硬件系统或者Linux软硬件系统。
-- 外设槽（PXI EXpress Peripheral Slot）：普通PXIE板卡的槽位
-- 系统时钟槽（PXI Express System Timing Slot）：作为星形时钟和触发的输出节点
-- 混合槽（PXI Express Hybrid Slot）：兼容PXI和PXIE板卡的槽位
+- 系统主控槽（PXI Express System Slot）：对应**系统主控模块**，一般在机箱的左边，通常占用4个槽的宽度，标准的PXIE可以是Windows软硬件系统或者Linux软硬件系统。
+- 外设槽（PXI EXpress Peripheral Slot）：对应普通PXIE**外设模块**
+- 系统时钟槽（PXI Express System Timing Slot）：作为星形时钟和触发的输出节点，对应**系统时钟模块**
+- 混合槽（PXI Express Hybrid Slot）：兼容PXI和PXIE的**外设模块**
 
 其中，已经有三个外设插槽（插槽位置：2、4、6）已经插入模块。  
 每个槽的宽度是20.32 mm 或者 0.8 in。
 
 ### 板卡结构
 
-板卡高度分为3U和6U，下面是标准文档中3U高度板卡的示例<sup>[8]</sup>：
+板卡高度分为3U和6U，下面是标准文档中3U高度**外设模块**板卡的示例<sup>[8]</sup>：
 
 <div  align="center">
 <img src="./PXI标准概述/3U标准板卡示例.png" width = "60%" height = "60%" alt="图片" align=center />
@@ -149,51 +152,71 @@ PXI Express is an adaptation of PCI Express to the PXI form factor, developed in
 
 根据定义，其中 XJ4 为触发和时钟接口， XJ3 为通信接口（兼容CompactPCIE端子和协议，也就是兼容PCIE的通信协议）。
 
-实物照片：
+外设模块实物照片：
 
 <div  align="center">
 <img src="./PXI标准概述/PXIE板卡照片-NI.jpg" width = "60%" height = "60%" alt="PXIE板卡照片-NI" align=center />
 </div>
 
-因为PXI是定义了风道方向的，图中散热片的鳍状片是顺着风向的。
+因为PXI是定义了风道方向的，图中散热片的鳍状散热片是顺着风向的。
 
-板卡尺寸：根据上面的PXI标准架构图，我们知道，PXI兼容的是CompactPCI的结构，包括模块板卡，而CompactPCI的PCB是兼容 [Eurocard](https://en.wikipedia.org/wiki/Eurocard_(printed_circuit_board)) (printed circuit board)标准的，根据维基百科的此条，我们知道 Eurocard 的大小，如下图：
+模块板卡（系统主控模块，系统时钟模块，外设模块都一样）尺寸：根据上面的PXI标准架构图，我们知道，PXI兼容的是CompactPCI的结构，包括模块板卡，而CompactPCI的PCB是兼容 [Eurocard](https://en.wikipedia.org/wiki/Eurocard_(printed_circuit_board)) (printed circuit board)标准的，根据维基百科的此条，我们知道 Eurocard 的大小，如下图：
 
 <div  align="center">
 <img src="./PXI标准概述/Eurocard-PCB结构尺寸.png" width = "60%" height = "60%" alt="Eurocard-PCB结构尺寸" align=center />
 </div>
 
-其中，红框和黄框才是 PXI 所使用的标准板卡，红框对应3U机箱，而黄框对应6U机箱。所以PCB大小为：
+其中，红框和黄框才是 PXI 所使用的标准板卡尺寸，红框对应3U机箱，而黄框对应6U机箱。所以PCB大小为(PCB板厚在后面会介绍，是1.6±0.2mm)：
 
-- 3U 机箱：100mm \* 160mm
-- 6U 机箱：233.35mm \* 160mm
+- 3U 机箱：100mm \* 160mm \* 1.6mm
+- 6U 机箱：233.35mm \* 160mm \* 1.6mm
 
-疑问：
+同时，上面的维基百科词条里说到：The Eurocard mechanical architecture was defined originally under IEC-60297-3. Today, the most widely recognized standards for this mechanical structure are IEEE 1101.1, IEEE 1101.10 (also known commonly as "dot ten") and IEEE 1101.11. **IEEE 1101.10 covers** the additional mechanical and electromagnetic interference features required for VITA 1.1-1997(R2002), which is the VME64 Extensions standard, as well as **PICMG 2.0 (R3.0)**, which is the CompactPCI specification.
 
-- <font face="黑体" color=red >PCB板厚度呢？</font>是1.6mm还是2mm ？
-- 定位孔（固定孔）相对位置坐标是多少？
-- PCB直角的倒角规则有没有？
+同时，根据PXIE硬件标准<sup>[8]</sup>，**3.3 Chassis Subrack Mechanical Requirements**：
+**RULE**: Just as with PXI-1, CompactPCI, and CompactPCI Express, a PXI Express Chassis SHALL use **PICMG 2.0**-compliant Chassis Subracks.
+
+也就是，IEEE 1101.10覆盖了PXIE所需要的PICMG 2.0标准，那我们就查看[IEEE 1101.10](https://ieeexplore.ieee.org/document/588320)标准中的相关描述即可。其中：Figure 20— 3U plug-in unit printed board with typical IEC 603-2 Type C, 3-row and expanded 5-row connector pin layout 如下：
+
+<div  align="center">
+<img src="./PXI标准概述/PXIE-PCB图示-尺寸.png" width = "100%" height = "100%" alt="PXIE-PCB图示-尺寸" align=center />
+</div>
+
+图中不只有PCB外框尺寸，也有端子引脚位置（但端子引脚位置很明显不适用于PXIE），还有PCB上需要为导轨让出的空位，以及定位孔的位置尺寸。
+
+其中，H<sub>b</sub>, D<sub>a</sub>, D<sub>b</sub>以及PCB厚度需要从 [IEEE 1101.1](https://ieeexplore.ieee.org/document/211187/) 查看，如下：
+
+<div  align="center">
+<img src="./PXI标准概述/Euroboard-Sizes-IEEE1101.1.jpg" width = "100%" height = "100%" alt="Euroboard-Sizes-IEEE1101.1" align=center />
+</div>
+
+PXIE 端子位置，根据PXIE硬件标准<sup>[8]</sup>：**3.7 New Module and Slot Types**，我们可以找到**系统时钟模块**的端子位置，其中，XJ3，XJ4，就是普通**外设模块**需要的端子位置了，如下：
+
+<div  align="center">
+<img src="./PXI标准概述/PXIE-系统时钟模块PCB端子位置标识.jpg" width = "70%" height = "70%" alt="PXIE-系统时钟模块PCB端子位置标识" align=center />
+</div>
+当然，根据PXIE硬件标准<sup>[8]</sup>，也可以自行翻阅**CompactPCI Express specification**。PXIE硬件标准中 **RULE** 描述如下：  
+**RULE:** 3U **PXI Express Peripheral Slots** SHALL meet the mechanical requirements for 3U Type 2 Peripheral Slots as defined in the **CompactPCI Express specification.**  
 
 ### 端子结构
 
-我们知道，端子有主控端子，外设端子，以及系统时钟端子。下图只是展现PXIE-3U-外设模块端子（PXI标准的，6U的，主控的，系统时钟的，不再赘述）：
+我们知道，端子有系统主控模块端子，外设模块端子，以及系统时钟模块端子。下图只是展现PXIE-3U-外设模块端子（而其他关于PXI标准或PXIE-PXI混合标准的，6U机箱高度的，主控模块的，系统时钟模块的特定端子，不再赘述，需要的可以去标准文件中查找。）：
 
 <div  align="center">
 <img src="./PXI标准概述/3U_PXI_Express_Peripheral_Slot.png" width = "40%" height = "40%" alt="图片" align=center />
 </div>
-上图为主机背板上的座子，公头（标准文档以P表示公头，J表示母头），背板的XP3，XP4，对应的是模块上的XJ3，XJ4，见下图：
+
+上图为主机背板上的座子，公头（标准文档以P表示公头，J表示母头），背板的XP3，XP4，对应的是外设模块上的XJ3，XJ4，外设模块端子见下图：
 
 <div  align="center">
 <img src="./PXI标准概述/PXIE模块端子照片.png" width = "50%" height = "50%" alt="PXIE模块端子照片" align=center />
 </div>
 
-根据PXIE硬件标准<sup>[8]</sup>：**3.6.1 Module Connector Requirements**
+关于外设模块的端子，根据PXIE硬件标准<sup>[8]</sup>：**3.6.1 Module Connector Requirements**
 
 - **RULE**: PXI Express Modules SHALL use the **ADF-F-3-10-2-F-25** connector as defined by the CompactPCI Express specification.  
 - **RULE**: PXI Express Modules SHALL use the **eHM-F2** connector as defined by the CompactPCI Express specification.  
 - **RULE**: System Controller Modules SHALL use the **UPM-M-7** or **UPM-M-7-HP** connector as defined by the CompactPCI Express specification.
-
-PXIE背板的端子，PXI兼容的模块端子，以及系统板卡的端子，这里不再列举型号。需要的可以去标准文件中查找。
 
 淘宝中查找“eHM-F2”，得到链接 <https://item.taobao.com/item.htm?spm=a230r.1.14.16.20a37c662CO6am&id=573208118080&ns=1&abbucket=14#detail>，对应的端子：
 
@@ -207,7 +230,7 @@ PXIE背板的端子，PXI兼容的模块端子，以及系统板卡的端子，�
 <img src="./PXI标准概述/ERNI214443端子.jpg" width = "50%" height = "50%" alt="ERNI214443端子" align=center />
 </div>
 
-不过，根据网页描述，<font face="黑体" color=red>这个端子的插拔次数才250次</font>，这也太少了。
+不过，根据网页描述，<font face="黑体" color=red>这个端子的插拔次数才250次</font>，这也太少了，是不是商家胡乱写的？
 
 在google中查找 “ADF-F-3-10-2-F-25” 找到对应的供应商型号：ERNI 973028，如下图：
 
@@ -217,43 +240,58 @@ PXIE背板的端子，PXI兼容的模块端子，以及系统板卡的端子，�
 
 在淘宝上搜索，就有许多对应的器件了，如 <https://item.taobao.com/item.htm?spm=a230r.1.14.170.34ab927eJq1dvJ&id=570187622258&ns=1&abbucket=14#detail>，以及 <https://item.taobao.com/item.htm?spm=a1z10.3-c-s.w4002-21252187955.10.7f591cb7pNaNP5&id=642719157971>。
 
-其实，直接在淘宝搜索CPCI就能找到这些的了，但搜索CPCI出来的端子太多了。
+其实，直接在淘宝搜索CPCI就能找到这些的了（CPCI非官方标准写法，但用标准写法：**Compact PCI 或 Compact PCI 端子**，找不到），只是搜索CPCI出来的端子太多了，不容易直接分辨出来。
 
 ## 硬件
 
-硬件包括端子引脚定义、逻辑电平、阻抗特性、时钟和信号时序以及供电电源等定义。
+硬件包括通信协议、端子引脚定义、逻辑电平、特征阻抗匹配、时钟和信号时序以及供电电源等定义。
 
-PXIE总线连接框架
+### 通信协议
+
+PXIE的通信协议是由CampactPCIE衍生而来，因此，他也是使用PCIE的通信协议，同时，从上面的机械结构部分描述知道，PXIE对应的端子也是兼容CPCIE的，但PXIE添加了时钟和触发引脚，这一部分是不同的。
+
+根据PXIE硬件标准<sup>[8]</sup>，**4.2 CPCI Express Signals**：  
+The signals involved in PCI Express communication, as well as various sideband signals used by PXI Express Modules and slots, are defined in the CompactPCI Express Specification. PXI Express developers need to follow the requirements of the CompactPCI Express Specification as well as the requirements of this specification when developing PXI Express backplanes and Modules.
+
+也就是，涉及PCIE通信协议的信号，其硬件都是CompactPCI Express的规格，我们设计时，需要满足CPCIE，但是，同时也要满足PXIE加入的特殊需求。
+
+<font face="黑体" color=red>关于CPCIE标准的概述，暂无。</font>等文档变便宜或者免费，然后下载到对应的说明文档之后，再行解读吧！
 
 ### 端子引脚定义
 
-#### 主控端子
+#### 系统主控模块端子引脚定义
 
 PXIE 主控插槽的引脚既可以定义为4个4通道的PCIE，也可以定义为一个8通道的和一个16通道的PCIE（当然了，4*4 < 8+16，他们实际使用的引脚数量不一样）。
 
-4个连接<sup>[8]</sup>:
+配置为4个连接的引脚定义如下<sup>[8]</sup>:
 
 <div  align="center">
 <img src="./PXI标准概述/主控引脚定义-4连接.png" width = "100%" height = "100%" alt="主控引脚定义-4连接" align=center />
 </div>
 
-2个连接<sup>[8]</sup>:
+配置为2个连接（一个8通道和一个16通道）的引脚定义<sup>[8]</sup>:
 
 <div  align="center">
 <img src="./PXI标准概述/主控引脚定义-2连接.png" width = "100%" height = "100%" alt="主控引脚定义-2连接" align=center />
 </div>
 
-#### 外设端子
+#### 外设模块端子引脚定义
 
-PXIE 外设插槽引脚定义如下<sup>[8]</sup>:
+PXIE 外设模块插槽引脚定义如下<sup>[8]</sup>:
 
 <div  align="center">
 <img src="./PXI标准概述/PXIE设备引脚定义.png" width = "100%" height = "100%" alt="图片" align=center />
 </div>
 
-可以看出，这个应该是支持8通道的PCIE的，因为他的接口包含了8对输入和8对输出： 1PER0-7(n-p) ，1PET0-7(n-p)
+- 通信接口：可以看出，这个应该是支持8通道的PCIE的，因为他的接口包含了8对输入（成对出现是因为他们是差分信号线）和8对输出： 1PER0-7(n-p) ，1PET0-7(n-p)
+- 触发和参考时钟：
+  - 触发：每个PXIE外设模块接口有8个triger， PXI_TRIG0 - PXI_TRIG7
+  - 时钟：有一个时钟，PXI_CLK10（另外，在通信接口是有时钟信号PXIe_CLK100和同步信号PXIe_SYNC100的)
+- 电源：可以看出电源有：3.3V，5Vaux，12V，相对于PXI，<font face="黑体" color=red>PXIE删除了5V以及-12V电源</font>，但增加了5Vaux。
 
-#### 系统时钟端子
+如果要负压电源，就基本上要在板子上使用开关电源了，对于高精度测量仪器，是个挑战，但可以将开关频率设置成与采样率一样。这样可以降低干扰。
+
+#### 系统时钟模块端子引脚定义
 
 PXIE时钟插槽引脚定义如下<sup>[8]</sup>：
 
@@ -263,20 +301,75 @@ PXIE时钟插槽引脚定义如下<sup>[8]</sup>：
 
 时钟插槽是兼容普通外设模块的，若以普通的PXIE外设模块插入，那么使用的是XP4/XJ4，XP3/XJ3端子。TP1/TJ1，TP2/TJ2不起作用。
 
-### 逻辑电平及阻抗特性
+### 逻辑电平及特征阻抗匹配
+
+通信接口：根据PXIE硬件标准<sup>[8]</sup>，**4.2.2 PXI Express Peripheral Module / Slot Requirements**，外设模块的通信接口必须满足如下要求：  
+**RULE**: PXI Express Peripheral Modules and Peripheral Slots SHALL meet all requirements for Type 2 Peripheral Boards and **Type 2 Peripheral Slots** defined in the CompactPCI Express Specification for the signals listed in Table 4-2.
+
+其中，时钟信号（**PXIe_CLK100**），有阻抗匹配要求（外设模块上），**推荐阻抗**如下：
+
+<div  align="center">
+<img src="./PXI标准概述/PXIE_外设模块_100M时钟_阻抗匹配.png" width = "100%" height = "100%" alt="PXIE_外设模块_100M时钟_阻抗匹配" align=center />
+</div>
+
+另外，同步信号 **PXIe_SYNC100** ，阻抗匹配要求与上图 **PXIe_CLK100** 的一样
+
+所以需要具体了解的话，需要翻阅CompactPCI Express 以及 PCIE 的标准文档。这里先不表。
+
+时钟和同步接口（PXIE硬件标准中<sup>[8]</sup>，叫Instrumentation Signals），包含时钟信号（Reference Clock，对应引脚： PXI_CLK10 ），触发信号（Trigger Bus，对应引脚：PXI_TRIG0~7），开始触发（Star Trigger，对应引脚：PXI_STAR）等。
+
+时钟信号PXI_CLK10：10MHz，兼容PXI，因此需要查看PXI硬件标准<sup>[9]</sup>，满足阻抗和电平满足规则还是挺多的，下面几条是对设计外设模块比较重要的：
+
+- **RULE**: The clock to each peripheral slot SHALL be driven by an independent buffer that has a source impedance matched to the backplane.
+- **RULE**: Peripheral modules’ PXI_CLK10 receivers SHALL be 5V tolerant.
+
+触发信号（ **Trigger Bus** ）需要有特定的阻抗，如下（下图是PXIE的，与PXI稍微不同）：
+
+<div  align="center">
+<img src="./PXI标准概述/PXIE_Trigger_Bus_terminal阻抗.png" width = "50%" height = "50%" alt="PXIE_Trigger_Bus_terminal阻抗" align=center />
+</div>
+
+另外，触发信号还有些规则，但与外设模块关系不大的，主要是对背板和系统时钟模块的要求，这里没有展开。
+
+开始触发（Star Trigger）：这个没有找到关于外设模块明确的阻抗匹配和电平要求，但有rule写着背板的要求：
+
+- **RULE**: The PXI **backplane** SHALL route the signals from the star trigger slot to each peripheral with a **trace impedance of 65 Ω ± 10%**.
 
 ### 时钟和同步信号时序
 
+根据PXIE硬件标准<sup>[8]</sup>，**4.4 PXI Express Timing References**，但里面主要是对背板，系统主控模块，系统时钟模块的要求，比如严格的时序控制。
+
+而对于普通**外设模块**，要求较少：
+
+- 一方面，需要和上文中提到的那样做阻抗匹配；
+- 另一方面，建议时钟连接线不要太长，从端子引脚算起，在PCB上，不要超过160ps（也就是25mm），但这个推荐值感觉很难达到。
+
+<div  align="center">
+<img src="./PXI标准概述/PXIE_外设模块时钟信号应用举例.png" width = "50%" height = "50%" alt="PXIE_外设模块时钟信号应用举例" align=center />
+</div>
+
 ### 供电电源
+
+如下图：
+
+<div  align="center">
+<img src="./PXI标准概述/PXIE电源电压及其供电电流标准.jpg" width = "80%" height = "80%" alt="PXIE电源电压及其供电电流标准" align=center />
+</div>
+
+<font face="黑体" color=red>可以看出，相对于PXI，PXIE标准提高了12V的电流能力，但是，删除了-12V的电源。并且，将5V输出能力，从单个外设模块2A，降低到所有外设模块共用0.5A，接近摆设。</font>
+
+不过好在总功率是增加了的，从25.6W增加到30W，令人欣慰。
 
 ## 软件
 
-## 产业
+包括资源管理文件的编写规范定义，以及驱动软件的规范，这里暂且不表。
+
+## 产业发展现状
 
 根据[PXI联盟官网](https://www.pxisa.org/About/MarketAcceptance.aspx)，最近每年PXI产业的产值都快速增长。
 
 <div  align="center">
-<img src="./PXI标准概述/PXIRevenueChart.png" width = "100%" height = "100%" alt="PXIRevenueChart" align=center />
+<img src="./PXI标准概述/PXIRevenueChart.png" width = "60%" height = "60%" alt="PXIRevenueChart" align=center />
 </div>
 
 虽然2017年刚超过10亿美元，但若是看增长曲线，这10年间的增长非常可观。
@@ -293,4 +386,5 @@ PXIE时钟插槽引脚定义如下<sup>[8]</sup>：
 [6] What is the difference between compactPCI and PXI? NI forums <https://forums.ni.com/t5/PXI/What-is-the-difference-between-compactPCI-and-PXI/td-p/3259792?profile.language=zh-CN>
 [7] PCI eXtensions for Instrumentation. Wikipedia <https://en.wikipedia.org/wiki/PCI_eXtensions_for_Instrumentation>
 [8] PXI Express Hardware Specification-PCI EXPRESS eXtensions for Instrumentation. An Implementation of CompactPCI Express. Revision 1.1 May 31, 2018. PXI Systems Alliance <https://www.pxisa.org/userfiles/files/Specifications/PXI5_PXIExpressHW_r11.pdf>
+[9] PXI 硬件标准。
 [9] My FPGA PCIe客户案例73：客户自己开发的ARTIX7 PXIe板卡利用LabVIEW My FPGA开发. bilibili <https://www.bilibili.com/read/cv10486741>
