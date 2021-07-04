@@ -2,16 +2,16 @@
 
 ## 缩略语以及专用术语
 
-| Syntax   | Description                                                     | Description                                                       |
-| :------- | :-------------------------------------------------------------- | :---------------------------------------------------------------- |
-| PXI      | PCI eXtensions for Instrumentation                              | 面向仪器系统的PCI扩展                                             |
-| PCI      | Peripheral Component Interconnect                               | 外设组件互连标准(或称个人电脑接口（Personal Computer Interface）) |
-| PCIE     | PCI Express                                                     | 高速PCI接口？                                                     |
-| CPCI     | Compact PCI                                                     | 紧凑型PCI                                                         |
-| COTS     | Commercial off-the-shelf (commercially available off-the-shelf) | 商业现货                                                          |
-| VXI      | VME eXtensions for Instrumentation                              | 一种仪器总线规范                                                  |
-| Eurocard | European Packaging Specifications                               |                                                                   |
-| PICMG    | PCI Industrial Computer Manufacturers Group                     |                                                                   |
+| 缩略词   | 英文全称                                                        | 中文全称              |
+| :------- | :-------------------------------------------------------------- | :-------------------- |
+| PXI      | PCI eXtensions for Instrumentation                              | 面向仪器系统的PCI扩展 |
+| PCI      | Peripheral Component Interconnect                               | 外设组件互连标准      |
+| PCIE     | PCI Express                                                     | 高速PCI接口           |
+| CPCI     | Compact PCI                                                     | 紧凑型PCI             |
+| COTS     | Commercial off-the-shelf (commercially available off-the-shelf) | 商业现货              |
+| VXI      | VME eXtensions for Instrumentation                              | 一种仪器总线规范      |
+| Eurocard | European Packaging Specifications                               |                       |
+| PICMG    | PCI Industrial Computer Manufacturers Group                     |                       |
 
 ## 什么是PXI
 
@@ -25,7 +25,7 @@ PXI (PCI eXtensions for Instrumentation) is based on and offers all of the benef
 
 翻译成中文就是：PXI(面向仪器系统的PCI扩展) 是一个基于PC的成熟平台，适用于测量和自动化系统。它提供了电源、冷却和通信总线来支持同一机箱内的多个仪器模块。PXI采用基于PC的商用PCI总线技术，但同时结合了坚固的CompactPCI模块化封装以及重要的定时和同步功能<sup>[2]</sup>。
 
-相对于CompactPCI，PXI里添加的定时、触发、同步功能对于测量仪器非常重要。
+相对于CompactPCI，PXI里添加的定时、触发、时钟同步功能对于测量仪器非常重要。
 
 ### PXI 和 CPCI 以及 PCI 的区别
 
@@ -34,7 +34,7 @@ PXI (PCI eXtensions for Instrumentation) is based on and offers all of the benef
 - PCI是Peripheral Component Interconnect(外设部件互连标准)的缩写，是工业电脑的主要扩展插槽，也是工业主板板载最多的插槽类型，ATX结构的工业主板一般带有4～6个PCI插槽，而MINI-ITX工业主板也可带有PCI插槽，应用非常广泛。  
 PCI总线是一种树型结构，并且独立于CPU总线，可以和CPU总线并行操作。PCI总线上可以挂接PCI设备和PCI桥片，PCI总线上只允许有一个PCI主设备，其他的均为PCI 从设备，而且读写操作只能在主从设备之间进行，从设备之间的数据交换需要通过主设备中转。<sup>[3]</sup>
 PCI规范规定了该总线的物理尺寸（包括线宽）、电气特性、总线时序和协议。该规范可从美国PCI-SIG协会购得。<sup>[4]</sup>
-- CPCI，即 CompactPCI, is a computer bus interconnect for industrial computers,[1] combining a Eurocard-type connector and PCI signaling and protocols.<sup>[5]</sup>
+- CPCI，即 CompactPCI, is a computer bus interconnect for industrial computers, combining a Eurocard-type connector and PCI signaling and protocols.<sup>[5]</sup>
 CPCI总线以PCI电气规范为基础，解决了VME等总线技术与PCI总线不兼容的问题，使得基于PC的X86架构、硬盘存储等技术能在工业领域使用。在机械结构上，CPCI总线结构使用了欧卡连接器和标准3U、6U板卡尺寸。同时由于在接口等地方做了重大改进，使得采用CPCI技术的工业服务器、工业电脑等拥有了高可靠性、高密度的优点。<sup>[3]</sup>
 - PXI(PCI eXtensions for Instrumentation，面向仪器系统的PCI扩展)，是一种专为工业数据采集与自动化应用度身定制的模块化仪器平台，具备机械、电气与软件等多方面的专业特性。是CompactPCI规范的扩展，结合了PCI的电气总线特性与CompactPCI的坚固性、模块化及Eurocard机械封装的特性，并增加了专门的同步总线和主要软件特性<sup>[3]</sup>。PXI是为了测量领域而制定的标准，因此，在CPCI的基础上，引入了时钟和触发总线（The clocks and triggers are not part of the cPCI standard.  That is where PXI comes in.  Coincidentally, many of your cPCI cards will work in many of your PXI chassis.<sup>[6]</sup>）。
 
@@ -139,8 +139,10 @@ PXI Express is an adaptation of PCI Express to the PXI form factor, developed in
 - 系统时钟槽（PXI Express System Timing Slot）：作为星形时钟和触发的输出节点，对应**系统时钟模块**
 - 混合槽（PXI Express Hybrid Slot）：兼容PXI和PXIE的**外设模块**
 
-其中，已经有三个外设插槽（插槽位置：2、4、6）已经插入模块。  
-每个槽的宽度是20.32 mm 或者 0.8 in。
+上图中，已经有三个外设插槽（插槽位置：2、4、6）已经插入模块。  
+每个槽的宽度是**20.32 mm 或者 0.8 in**。
+
+除了NI，国内也有许多厂家制作标准的PXI和PXIE机箱，如有需要，直接购买符合要求的机箱即可。
 
 ### 板卡结构
 
@@ -196,7 +198,7 @@ PXIE 端子位置，根据PXIE硬件标准<sup>[8]</sup>：**3.7 New Module and 
 <img src="./PXI标准概述/PXIE-系统时钟模块PCB端子位置标识.jpg" width = "70%" height = "70%" alt="PXIE-系统时钟模块PCB端子位置标识" align=center />
 </div>
 当然，根据PXIE硬件标准<sup>[8]</sup>，也可以自行翻阅**CompactPCI Express specification**。PXIE硬件标准中 **RULE** 描述如下：  
-**RULE:** 3U **PXI Express Peripheral Slots** SHALL meet the mechanical requirements for 3U Type 2 Peripheral Slots as defined in the **CompactPCI Express specification.**  
+**RULE:** 3U **PXI Express Peripheral Slots** SHALL meet the mechanical requirements for **3U Type 2** Peripheral Slots as defined in the **CompactPCI Express specification.**  
 
 ### 端子结构
 
@@ -241,6 +243,10 @@ PXIE 端子位置，根据PXIE硬件标准<sup>[8]</sup>：**3.7 New Module and 
 在淘宝上搜索，就有许多对应的器件了，如 <https://item.taobao.com/item.htm?spm=a230r.1.14.170.34ab927eJq1dvJ&id=570187622258&ns=1&abbucket=14#detail>，以及 <https://item.taobao.com/item.htm?spm=a1z10.3-c-s.w4002-21252187955.10.7f591cb7pNaNP5&id=642719157971>。
 
 其实，直接在淘宝搜索CPCI就能找到这些的了（CPCI非官方标准写法，但用标准写法：**Compact PCI 或 Compact PCI 端子**，找不到），只是搜索CPCI出来的端子太多了，不容易直接分辨出来。
+
+### 其他结构
+
+其他结构件，比如导轨，手柄，紧固螺丝，可以直接使用市面上现成的成套解决方案。但散热片可能仍得定制或适配。
 
 ## 硬件
 
@@ -344,6 +350,8 @@ PXIE时钟插槽引脚定义如下<sup>[8]</sup>：
 - 一方面，需要和上文中提到的那样做阻抗匹配；
 - 另一方面，建议时钟连接线不要太长，从端子引脚算起，在PCB上，不要超过160ps（也就是25mm），但这个推荐值感觉很难达到。
 
+PXIE 外设模块时钟信号应用举例：
+
 <div  align="center">
 <img src="./PXI标准概述/PXIE_外设模块时钟信号应用举例.png" width = "50%" height = "50%" alt="PXIE_外设模块时钟信号应用举例" align=center />
 </div>
@@ -386,5 +394,4 @@ PXIE时钟插槽引脚定义如下<sup>[8]</sup>：
 [6] What is the difference between compactPCI and PXI? NI forums <https://forums.ni.com/t5/PXI/What-is-the-difference-between-compactPCI-and-PXI/td-p/3259792?profile.language=zh-CN>
 [7] PCI eXtensions for Instrumentation. Wikipedia <https://en.wikipedia.org/wiki/PCI_eXtensions_for_Instrumentation>
 [8] PXI Express Hardware Specification-PCI EXPRESS eXtensions for Instrumentation. An Implementation of CompactPCI Express. Revision 1.1 May 31, 2018. PXI Systems Alliance <https://www.pxisa.org/userfiles/files/Specifications/PXI5_PXIExpressHW_r11.pdf>
-[9] PXI 硬件标准。
-[9] My FPGA PCIe客户案例73：客户自己开发的ARTIX7 PXIe板卡利用LabVIEW My FPGA开发. bilibili <https://www.bilibili.com/read/cv10486741>
+[9] PXI-1 Hardware Specification-PCI eXtensions for Instrumentation. An Implementation of CompactPCI. Revision 2.3 May 31, 2018. PXI Systems Alliance. <https://www.pxisa.org/userfiles/files/Specifications/PXI1_PXIHW_r23.pdf>
