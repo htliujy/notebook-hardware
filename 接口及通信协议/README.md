@@ -22,3 +22,4 @@
 待调研记录：
 
 - 什么是AXI接口，见：[AXI接口协议详解-AXI总线、接口、协议](http://xilinx.eetrend.com/blog/2020/100052459.html)。
+- [LAN口和WAN口的区别是什么？](https://www.zhihu.com/question/20738115)WLAN又是什么？
