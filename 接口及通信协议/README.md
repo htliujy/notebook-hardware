@@ -13,6 +13,12 @@
 
 常见高速接口
 
+- PCIE
+
 调试工具软件
 
 - netassist
+
+待调研记录：
+
+- 什么是AXI接口，见：[AXI接口协议详解-AXI总线、接口、协议](http://xilinx.eetrend.com/blog/2020/100052459.html)。
