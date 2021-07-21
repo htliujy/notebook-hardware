@@ -10,7 +10,9 @@ xilinx的说明文档用了太多的专业术语以及缩略语了，记不下�
 - HR I/O: high-range I/O
 - SDR: Single Data Rate （一个周期一个信号）
 - DDR: Double Data Rate (一个周期两个信号)
+- QDR: [Quad data rate](https://en.wikipedia.org/wiki/Quad_data_rate), GDDR5X使用该技术但兼容DDR；
 - DCI: digitally-controlled impedance
+- MMCM: Mixed-Mode Clock Manager (Module);
 
 ## 参考及引用
 

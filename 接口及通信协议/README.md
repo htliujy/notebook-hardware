@@ -14,6 +14,13 @@
 常见高速接口
 
 - PCIE
+- AXI：ARM 公司提出的AMBA（Advanced Microcontroller Bus Architecture）的一个部分，是一种高性能、高带宽、低延迟的片内总线。
+
+接口电平：
+
+- TTL
+- CMOS
+- LVDS
 
 调试工具软件
 
