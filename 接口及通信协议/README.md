@@ -4,7 +4,8 @@
 
 常见低速接口
 
-- SPI
+- SPI: Serial Peripheral Interface
+  - [Single, Dual, and Quad SPI About the SPI Protocol](https://www.totalphase.com/blog/2020/05/what-are-the-differences-of-single-vs-dual-vs-quad-spi/)
 - I2C
 - RS232
 - 485
@@ -19,8 +20,19 @@
 接口电平：
 
 - TTL
+- LVTTL
 - CMOS
+- HCMOS
+- LVCMOS
 - LVDS
+- Sinewave
+- Clipped Sinewave
+- PECL
+- LVPECL
+- CML：Current Mode Logic（电流模式逻辑），[硬件设计:逻辑电平--CML](https://www.cnblogs.com/wcat/p/11396812.html)。
+- VML
+- RS232
+- RS485
 
 调试工具软件
 
