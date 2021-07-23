@@ -74,7 +74,13 @@ PS：上电前需要将bootmode配置成SD卡模式。
 新建在FSBL工程（新建，和之前用来生成BOOT.BIN用的fsbl.elf不是同一个）mian.c文件中main函数383行后面增加BootModeRegister = JTAG_MODE; （位置不要放错，其他函数也有类似的位置）。编译成又一个FSBL_Loader.elf文件。这个是用来下载的，之前那个是用来合成BOOT.BIN的。
 ```
 
-根据个人理解，这第二个FSBL_Loader.elf文件，是在JTAG烧录的时候运行的，就是JTAG先将FSBL_Loader.elf推给PS系统，PS执行FSBL_Loader.elf，因为里面的启动模式配置为JTAG（BootModeRegister = JTAG_MODE;），因此，继续从JTAG获取BOOT.bin，并将其烧录到Flash中。
+根据个人理解，上面这篇文章说的FSBL_Loader.elf文件，是在JTAG烧录的时候运行的，就是JTAG先将FSBL_Loader.elf推给PS系统，PS执行FSBL_Loader.elf，因为里面的启动模式配置为JTAG（BootModeRegister = JTAG_MODE;），因此，继续从JTAG获取BOOT.bin，并将其烧录到Flash中。所以，FSBL_Loader.elf 应该只是为了和JTAG通信用并将BOOT.bin写入Flash用的，本身并不会写入Flash。
+
+烧录选项见下图：
+
+<div  align="center">
+<img src="./Xilinx-程序固化/QSPI-Flash烧录.png" width = "50%" height = "50%" alt="QSPI-Flash烧录" align=center />
+</div>
 
 断电重启后，因为拨码开关已经配置到了QSPI Flash，所以PS系统会直接从Flash启动，运行BOOT.bin里面的文件。而这个BOOT.bin是和SD卡中的一模一样的，不需要配置**BootModeRegister = JTAG_MODE;**
 
