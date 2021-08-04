@@ -350,7 +350,7 @@ PXIE时钟插槽引脚定义如下<sup>[8]</sup>：
 - 一方面，需要和上文中提到的那样做阻抗匹配；
 - 另一方面，建议时钟连接线不要太长，从端子引脚算起，在PCB上，不要超过160ps（也就是25mm），但这个推荐值感觉很难达到。
 
-PXIE 外设模块时钟信号应用举例：
+PXIE 外设模块时钟信号应用举例(举例，不是标准)：
 
 <div  align="center">
 <img src="./PXI标准概述/PXIE_外设模块时钟信号应用举例.png" width = "50%" height = "50%" alt="PXIE_外设模块时钟信号应用举例" align=center />
@@ -386,12 +386,12 @@ PXIE 外设模块时钟信号应用举例：
 
 ## 参考及引用
 
-[1] PXI ARCHITECTURE. PXI Systems Alliance <http://www.pxisa.org/About/Architecture/Default.aspx>
-[2] PXI机箱与台式机机箱的对比. 电子发烧友 <http://www.elecfans.com/emb/580128_a.html>
-[3] 工业电脑中PCI、CPCI、PXI插槽的区别. CSDN <https://blog.csdn.net/wordwarwordwar/article/details/80003603>
-[4] 外设组件互连标准. 维基百科 <https://zh.wikipedia.org/wiki/%E5%A4%96%E8%AE%BE%E7%BB%84%E4%BB%B6%E4%BA%92%E8%BF%9E%E6%A0%87%E5%87%86>
-[5] CompactPCI. Wikipedia <https://en.wikipedia.org/wiki/CompactPCI>
-[6] What is the difference between compactPCI and PXI? NI forums <https://forums.ni.com/t5/PXI/What-is-the-difference-between-compactPCI-and-PXI/td-p/3259792?profile.language=zh-CN>
-[7] PCI eXtensions for Instrumentation. Wikipedia <https://en.wikipedia.org/wiki/PCI_eXtensions_for_Instrumentation>
-[8] PXI Express Hardware Specification-PCI EXPRESS eXtensions for Instrumentation. An Implementation of CompactPCI Express. Revision 1.1 May 31, 2018. PXI Systems Alliance <https://www.pxisa.org/userfiles/files/Specifications/PXI5_PXIExpressHW_r11.pdf>
-[9] PXI-1 Hardware Specification-PCI eXtensions for Instrumentation. An Implementation of CompactPCI. Revision 2.3 May 31, 2018. PXI Systems Alliance. <https://www.pxisa.org/userfiles/files/Specifications/PXI1_PXIHW_r23.pdf>
+[1] PXI ARCHITECTURE. PXI Systems Alliance <http://www.pxisa.org/About/Architecture/Default.aspx>  
+[2] PXI机箱与台式机机箱的对比. 电子发烧友 <http://www.elecfans.com/emb/580128_a.html>  
+[3] 工业电脑中PCI、CPCI、PXI插槽的区别. CSDN <https://blog.csdn.net/wordwarwordwar/article/details/80003603>  
+[4] 外设组件互连标准. 维基百科 <https://zh.wikipedia.org/wiki/%E5%A4%96%E8%AE%BE%E7%BB%84%E4%BB%B6%E4%BA%92%E8%BF%9E%E6%A0%87%E5%87%86>  
+[5] CompactPCI. Wikipedia <https://en.wikipedia.org/wiki/CompactPCI>  
+[6] What is the difference between compactPCI and PXI? NI forums <https://forums.ni.com/t5/PXI/What-is-the-difference-between-compactPCI-and-PXI/td-p/3259792?profile.language=zh-CN>  
+[7] PCI eXtensions for Instrumentation. Wikipedia <https://en.wikipedia.org/wiki/PCI_eXtensions_for_Instrumentation>  
+[8] PXI Express Hardware Specification-PCI EXPRESS eXtensions for Instrumentation. An Implementation of CompactPCI Express. Revision 1.1 May 31, 2018. PXI Systems Alliance <https://www.pxisa.org/userfiles/files/Specifications/PXI5_PXIExpressHW_r11.pdf>  
+[9] PXI-1 Hardware Specification-PCI eXtensions for Instrumentation. An Implementation of CompactPCI. Revision 2.3 May 31, 2018. PXI Systems Alliance. <https://www.pxisa.org/userfiles/files/Specifications/PXI1_PXIHW_r23.pdf>  
