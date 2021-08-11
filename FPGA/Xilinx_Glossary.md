@@ -26,6 +26,10 @@ xilinx的说明文档用了太多的专业术语以及缩略语了，记不下�
 - BIF: Boot Image Format
 - BSP: Board Support Package
 
+Vivado：
+
+- ECO 指的是 Engineering Change Order ，即工程变更指令。目的是为了在设计的后期，快速灵活地做小范围修改，从而尽可能的保持已经验证的功能和时序。ECO 是从 IC 设计领域继承而来，Vivado上 的 ECO 便相当于 ISE 上的 FPGA Editor。参考：[“揭秘” Xilinx FPGA 的 ECO 功能](http://xilinx.eetrend.com/content/2021/100091895.html)
+
 ## 参考及引用
 
 [1] Glossary <https://www.xilinx.com/support/documentation/sw_manuals/xilinx10/help/iseguide/mergedProjects/fpga_editor/html/fe_glossary.htm>
