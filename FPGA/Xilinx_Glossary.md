@@ -25,6 +25,7 @@ xilinx的说明文档用了太多的专业术语以及缩略语了，记不下�
 - FSBL: First Stage Bootloader
 - BIF: Boot Image Format
 - BSP: Board Support Package
+- ILA: Integrated Logic Analyzer
 
 Vivado：
 
