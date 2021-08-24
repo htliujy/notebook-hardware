@@ -6,6 +6,11 @@ xilinx的说明文档用了太多的专业术语以及缩略语了，记不下�
 
 - MIO: 多功能IO接口，属于Zynq的PS部分
 - EMIO：扩展MIO，依然属于Zynq的PS部分，只是连接到了PL上，再从PL的引脚连到芯片外面实现数据输入输出。
+- SRCC: Single Region Clock Capable
+- MRCC: Multi-Region Clock Capable
+- CCIO: Clock capable inputs
+- MMCM: mixed-mode clock manager
+- CMT: clock management tiles(each CMT containing one MMCM and one PLL, reside in the CMT column next to the I/O column.)
 
 其他：
 
