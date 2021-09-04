@@ -4,6 +4,9 @@ xilinx的说明文档用了太多的专业术语以及缩略语了，记不下�
 
 接口：
 
+- HP IO: High-performance I/O, The HP I/O banks are designed to meet the performance requirements of high-speed memory and other chip-to-chip interfaces
+- HD IO: High-density I/O, The HD I/O banks are designed to support low-speed interfaces.
+- HR IO: High-range I/O, The HR I/O banks are designed to support a wider range of I/O standards
 - MIO: 多功能IO接口，属于Zynq的PS部分
 - EMIO：扩展MIO，依然属于Zynq的PS部分，只是连接到了PL上，再从PL的引脚连到芯片外面实现数据输入输出。
 - SRCC: Single Region Clock Capable

@@ -7,6 +7,7 @@
 - SPI: Serial Peripheral Interface
   - [Single, Dual, and Quad SPI About the SPI Protocol](https://www.totalphase.com/blog/2020/05/what-are-the-differences-of-single-vs-dual-vs-quad-spi/)
 - I2C
+  - SMBus
 - RS232
 - 485
   - modbus RTU?
