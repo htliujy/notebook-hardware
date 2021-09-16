@@ -36,7 +36,7 @@ It is acceptable to have differential inputs such as LVDS and LVDS_25 in I/O ban
 3. The differential signals at the input pins meet the VIDIFF (min) requirements in the corresponding LVDS or LVDS_25 DC specifications tables of the specific device family data sheet.差分电压满足最小输入差分电压VIDIFF (min)要求；
 4. For HR I/O banks in bidirectional configuration, internal differential termination is always used. 为何这里又强调在HR I/O中，配置为双向模式时，一定要使用内部端接电阻（与第一点冲突）。
 
-为了满足上述要求，可以使用如下图的接线方法。
+当LVDS作为输入引脚时，如果确实没有办法满足条件时，可以使用AC耦合的解决方案。其原理在于所谓的电平不匹配都是共模电压不匹配，如果使用如下图所示的电路，其中AC耦合电容将DC电压阻断，也就是TX端的共模电压不会传到RX端，RX端只能接收到差分的输入信号，而RX端的共模电压通过RBIAS进行调节，以满足RX端接收到的绝对电压不会超过VCCO+0.2的要求<sup>[5]</sup>。
 
 <div  align="center">
 <img src="./Xilinx-LVDS接口/Example-circuit-for-AC-coupled-and-DC-biased-Differential-Clock-input.png" width = "80%" height = "80%" alt="图片" align=center />
@@ -44,7 +44,7 @@ It is acceptable to have differential inputs such as LVDS and LVDS_25 in I/O ban
 
 ### LVDS Interface Checklist
 
-根据Xinlix官网上的问答<sup>[4]</sup>，有：
+根据Xinlix官网上的问答<sup>[4]</sup><sup>[5]</sup>，有：
 
 HP IO:
 
@@ -68,3 +68,4 @@ PS：一般芯片标称输入IO的绝对最大电压不得超过Vcc+0.3V，但�
 [2] ds191-Zynq-7000 SoC DC and AC Switching Characteristics.pdf
 [3] ug471_7Series_SelectIO.pdf
 [4] 7 Series, UltraScale, UltraScale+ FPGAs and MPSoC devices - LVDS_33, LVDS_25, LVDS_18, LVDS inputs and outputs for High Range (HR) and High Performance (HP) I/O banks. <https://www.xilinx.com/support/answers/43989.html>
+[5] FPGA与LVDS信号兼容性分析方法<http://xilinx.eetrend.com/blog/2020/100050815.html>
