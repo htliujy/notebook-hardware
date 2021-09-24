@@ -122,3 +122,8 @@
 - 孔径时间、孔径抖动、孔径延迟时间——正本清源, 作者：Walt Kester, MT-007 TUTORIAL analog devices
 - 用KiCAD做图算了！
 - 三极管高频选通-2SC3326
+
+glossary
+
+- insulate: 绝缘
+- isolate: 隔离
