@@ -1,8 +1,10 @@
 # Xilinx-FPGA在线调试的办法
 
+FPGA的debug也是FPGA设计中重要的一环。掌握并灵活运用FPGA设计工具的debug功能也是加快FPGA设计的关键<sup>[1]</sup>。
+
 ## 在线调试观察数据
 
-看起来基本上都是使用自带的<font face="黑体" color=red >ILA</font>核实现在线调试观察运行状态，不过，调用方法却又数种：
+看起来基本上都是使用自带的<font face="黑体" color=red >ILA</font>核（Integrated Logic Analyzer）实现在线调试观察运行状态，不过，调用方法却又数种：
 
 1. 直接在IP catalog 生成IP核，将IP核例化后，生成的bit文件就会有调试器（*.ltx文件，烧录bit流时，也要烧录）；
 2. 在约束文件（*.xdc）中，将需要调试观察的net标记为`MARK_DEBUG`，如`set_property MARK_DEBUG false [get_nets {C0_reg_n_0_[4]}]`;
@@ -30,6 +32,8 @@
 
 ## 调试时输入变量或者常量
 
-使用VIO。
+使用<font face="黑体" color=red>VIO</font>核（Virtual Input/Output core）
 
 ## 参考及引用
+
+[1] Xilinx Vivado 硬件诊断（ ila和vio的使用） <http://xilinx.eetrend.com/content/2018/100013006.html>
