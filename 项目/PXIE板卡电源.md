@@ -101,15 +101,3 @@ Vdo means dropout voltage.
 对于ADP5073ACPZ-R7，如果过流保护点1.2A太小，可以选择ADP5074ACPZ-R7，有2.4A。
 
 What is ADIsimPower tool set in Analog Device?
-
-上周工作总结:
-1、PXIe板卡锁放：
-	a、和志健一起，确认了ADS1675的功能（ENBO，THD），同时也测试了它的Overload指示功能，正常；
-	b、整理锁放原理图，前级和PXIe的接口（主要是志健给的）
-	c、调研电源树方案，调研具体电源器件选型（DCDC和LDO），并和志健讨论。
-
-
-下周计划：
-1、和仕杰一起初步完成PXIE锁放原理图绘制。
-
-2、安排源表组讨论主控系统方案。
