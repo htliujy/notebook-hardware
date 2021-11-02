@@ -9,16 +9,16 @@
 5. reference
 
 运放对比：
-| OP         | Chs   | Supply Volt | BW MHz | SR V/us | In Impedance    | noise            | offset/mV | out cur      | note       |
-| ---------- | ----- | ----------- | ------ | ------- | --------------- | ---------------- | --------- | ------------ | ---------- |
-| AD8066     | 2     | 5~24V       | 145    |         |                 | 7nV/√Hz@10kHz    |           |              | 电压轨太窄 |
-| OPA828     | 1     | ±4~±18V     | 45     | 150     | 10^12           | 4nV/√Hz          | 0.4 max   | 30mA         |            |
-| ADA4898    | 1/2   | ±5~±16V     | 65     | 50      | 30MΩ/5kΩ(DM)    | 0.9nV/√Hz        | 0.16 max  | 40mA         |            |
-| LF347M     | 1     | ±3.5V~±18V  | 3      | 13      | 10^12           | 18nV/√Hz         | 10 max    |              | 偏置太大   |
-| OPA1611/2  | 1/2   | ±2.25V~±18V | 40     | 27      | 1GΩ/20kΩ(DM)    | 1.1nV/√Hz        | 0.5 max   | ±30mA        |            |
-| OPA1642    | 1/2/4 | ±2.25~±16V  | 11     | 20      | 10^13           | 5.1nV/√Hz        | 3.5 max   | 36/–30mA(SC) | 偏置太大   |
-| OPA2810    | 1     | 4.75V ~27V  | 105    | 192     |                 | 5.7nV/√Hz@100kHz |           |              | 电压轨太窄 |
-| LME49720MA | 2     | ±2.5~±17V   | 55     | 15      | 1000MΩ/30kΩ(DM) | 2.7nV/√Hz        | 0.7 max   |              |            |
+| OP         | Chs   | Supply Volt | BW MHz | SR V/us | In Impedance    | noise            | offset/mV | out cur      | price | note       |
+| ---------- | ----- | ----------- | ------ | ------- | --------------- | ---------------- | --------- | ------------ | ----- | ---------- |
+| AD8066     | 2     | 5~24V       | 145    |         |                 | 7nV/√Hz@10kHz    |           |              |       | 电压轨太窄 |
+| OPA828     | 1     | ±4~±18V     | 45     | 150     | 10^12           | 4nV/√Hz          | 0.4 max   | 30mA         | 35    |            |
+| ADA4898    | 1/2   | ±5~±16V     | 65     | 50      | 30MΩ/5kΩ(DM)    | 0.9nV/√Hz        | 0.16 max  | 40mA         | 20/35 |            |
+| LF347M     | 1     | ±3.5V~±18V  | 3      | 13      | 10^12           | 18nV/√Hz         | 10 max    |              |       | 偏置太大   |
+| OPA1611/2  | 1/2   | ±2.25V~±18V | 40     | 27      | 1GΩ/20kΩ(DM)    | 1.1nV/√Hz        | 0.5 max   | ±30mA        | 15/23 |            |
+| OPA1642    | 1/2/4 | ±2.25~±16V  | 11     | 20      | 10^13           | 5.1nV/√Hz        | 3.5 max   | 36/–30mA(SC) |       | 偏置太大   |
+| OPA2810    | 1     | 4.75V ~27V  | 105    | 192     |                 | 5.7nV/√Hz@100kHz |           |              |       | 电压轨太窄 |
+| LME49720MA | 2     | ±2.5~±17V   | 55     | 15      | 1000MΩ/30kΩ(DM) | 2.7nV/√Hz        | 0.7 max   |              | 19    |            |
 
 疑问：
   噪声密度跟频率的关系是怎样的。
@@ -62,6 +62,10 @@
   - <font face="黑体" color=green>OPA828</font>
     - 输出电流能力: 30mA
 
+疑问：
+  电流转电压的运放，差分阻抗是否很重要，因为ADA4898的输入偏置为160uVmax，我想5kΩ的差分输入阻抗是可以接受的。那就不需要使用OPA828，这样就可以有双通道，同时包括偏置，噪声的性能更优秀。还能少一种运放型号（OPA828）。
+  当然了，如果要这样做的话，ADC的输入运放也得用OPA1612，然后完全放弃OPA828。
+
 ## 二、TTL out
 
 功能：
@@ -90,8 +94,8 @@
   - 16bits
   - 接口：50MHz
   - 双通道
-  - 单通道输出：50MHz/16bit = 3.12MSPS？？
-  - 双通道输出：3.12MSPS/2 = 1.56MSPS？？
+  - 单通道输出：50MHz/16bit = 2.5MSPS
+  - 双通道输出：3.12MSPS/2 = 1.25MSPS
 - DAC输出运放选型（电流转电压）：
   - OPA1642
     - 带宽：11MHz
@@ -125,16 +129,23 @@
     - 550 kSPS/Ch
     - 16 bits
     - 2 Channels
-    - <font face="黑体" color=green>compatalbe 1.8V IO</font>
-- 输入buffer选型：<font face="黑体" color=green>OPA828</font>,单通道
-  - input offset: 400uV max
-  - noise:
-    - 4 nV/√Hz @ 1kHz
-    - 7.5 nV/√Hz @ 10Hz
-  - 输入阻抗：10<sup>12</sup>Ω
-  - 带宽：45MHz
-  - 压摆率：150V/us
-  - <font face="黑体" color=green>单通道</font>，每个通道用一个。
+    - <font face="黑体" color=green>1.8V IO Compatable</font>
+- 输入buffer选型：
+  - <font face="黑体" color=green>OPA828</font>,单通道
+    - input offset: 400uV max
+    - noise:
+      - 4 nV/√Hz @ 1kHz
+      - 7.5 nV/√Hz @ 10Hz
+    - 输入阻抗：10<sup>12</sup>Ω
+    - 带宽：45MHz
+    - 压摆率：150V/us
+    - <font face="黑体" color=green>单通道</font>，每个通道用一个。
+  - OPA1612
+    - input offset: 500uV max
+    - noise: 1.1 nV/√Hz @ 1kHz
+    - 输入阻抗：<font face="黑体" color=red>1GΩ/20kΩ(DM)，能否接受？</font>
+    - 带宽：40MHz
+    - 压摆率：27V/us
 
 | ADC          | chs  | bits | kSPS   | interface  | price | note               |
 | :----------- | :--- | :--- | :----- | :--------- | :---- | :----------------- |
@@ -169,4 +180,4 @@
     - <font face="黑体" color=green>供电：0-15V就行，不需要双电源。</font>
     - sine out DAC 用一个通道，2个channel out DAC共用一个通道
   - OPA1642
-    - input offset: 3.5mV max, <font face="黑体" color=red>veto</font>
+    - input offset: 3.5mV max, <font face="黑体" color=red>偏置太大，不要</font>
