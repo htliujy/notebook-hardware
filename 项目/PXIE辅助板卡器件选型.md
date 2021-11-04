@@ -3,21 +3,32 @@
 辅助板功能
 
 1. sine out
+   1. DAC8811
+   2. OPA828 * 3
+   3. ADA4898-2
 2. TTL out
+   1. LT1016CS8
+   2. SN74AHC1G86DBV
 3. Channel out * 2
+   1. DAC8812
+   2. OPA1642 * 2
 4. ADC in * 2
+   1. LTC2353-16
+   2. OPA1642
 5. reference
+   1. ADR01
+   2. OPA828
 
 运放对比：
 | OP         | Chs   | Supply Volt | BW MHz | SR V/us | In Impedance    | noise            | offset/mV | out cur      | price | note       |
 | ---------- | ----- | ----------- | ------ | ------- | --------------- | ---------------- | --------- | ------------ | ----- | ---------- |
-| AD8066     | 2     | 5~24V       | 145    |         |                 | 7nV/√Hz@10kHz    |           |              |       | 电压轨太窄 |
+| AD8066     | 2     | 5~24V       | 145    |         |                 | 7nV/√Hz@10kHz    |           |              | 23    | 电压轨太窄 |
 | OPA828     | 1     | ±4~±18V     | 45     | 150     | 10^12           | 4nV/√Hz          | 0.4 max   | 30mA         | 35    |            |
 | ADA4898    | 1/2   | ±5~±16V     | 65     | 50      | 30MΩ/5kΩ(DM)    | 0.9nV/√Hz        | 0.16 max  | 40mA         | 20/35 |            |
-| LF347M     | 1     | ±3.5V~±18V  | 3      | 13      | 10^12           | 18nV/√Hz         | 10 max    |              |       | 偏置太大   |
+| LF347M     | 1     | ±3.5V~±18V  | 3      | 13      | 10^12           | 18nV/√Hz         | 10 max    |              | 10    | 偏置太大   |
 | OPA1611/2  | 1/2   | ±2.25V~±18V | 40     | 27      | 1GΩ/20kΩ(DM)    | 1.1nV/√Hz        | 0.5 max   | ±30mA        | 15/23 |            |
-| OPA1642    | 1/2/4 | ±2.25~±16V  | 11     | 20      | 10^13           | 5.1nV/√Hz        | 3.5 max   | 36/–30mA(SC) |       | 偏置太大   |
-| OPA2810    | 1     | 4.75V ~27V  | 105    | 192     |                 | 5.7nV/√Hz@100kHz |           |              |       | 电压轨太窄 |
+| OPA1642    | 1/2/4 | ±2.25~±16V  | 11     | 20      | 10^13           | 5.1nV/√Hz        | 3.5 max   | 36/–30mA(SC) | 10    | 偏置太大   |
+| OPA2810    | 1     | 4.75V ~27V  | 105    | 192     |                 | 5.7nV/√Hz@100kHz |           |              | 12    | 电压轨太窄 |
 | LME49720MA | 2     | ±2.5~±17V   | 55     | 15      | 1000MΩ/30kΩ(DM) | 2.7nV/√Hz        | 0.7 max   |              | 19    |            |
 
 疑问：
@@ -97,13 +108,13 @@
   - 单通道输出：50MHz/16bit = 2.5MSPS
   - 双通道输出：3.12MSPS/2 = 1.25MSPS
 - DAC输出运放选型（电流转电压）：
-  - OPA1642
+  - <font face="黑体" color=green>OPA1642</font>
     - 带宽：11MHz
     - 压摆率：20V/us
     - 输入阻抗：10^13
     - 电流输出能力：（短路）36 mA and –30 mA (sourcing and sinking)
     - input Offset：<font face="黑体" color=red>3.5mV max</font>
-  - <font face="黑体" color=green>OPA1612</font>
+  - OPA1612
     - 带宽：40MHz
     - 压摆率：27V/us
     - 输入阻抗：<font face="黑体" color=green>20kΩ(DM)，10^9Ω(CM)</font>
@@ -173,7 +184,7 @@
       - <font face="黑体" color=green>SOIC-8: 3 ppm/°C</font>
       - SC70-5/TSOT-5: 9 ppm/°C
 - buffer运放：
-  - <font face="黑体" color=green>OPA1612</font>
+  - OPA1612
     - input offset：500uVmax
     - 输出电流：30mA
     - Noise Density: 1.1 nV/√Hz at 1 kHz
@@ -181,3 +192,21 @@
     - sine out DAC 用一个通道，2个channel out DAC共用一个通道
   - OPA1642
     - input offset: 3.5mV max, <font face="黑体" color=red>偏置太大，不要</font>
+  - ADA4898-2
+    - offset： <font face="黑体" color=green>160uV max</font>
+    - 输入阻抗：30MΩ（CM），5kΩ（DM）
+    - 带宽: 65MHz
+    - 压摆率：55V/us
+    - noise:
+      - 0.9 nV/√Hz @ 1kHz
+      - 2.4 pA/√Hz @ 1kHz
+      - 输出电流能力：40mA
+  - <font face="黑体" color=green>OPA828</font>
+    - input offset: 400uV max
+    - noise:
+      - 4 nV/√Hz @ 1kHz
+      - 7.5 nV/√Hz @ 10Hz
+    - 输入阻抗：10<sup>12</sup>Ω
+    - 带宽：45MHz
+    - 压摆率：150V/us
+    - 输出电流能力: 30mA
