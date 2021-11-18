@@ -6,11 +6,15 @@
   - +18V：0.3A（DCDC：LMR62014）
     - +15V（LDO：MC78M15CDTRKG）
   - +5.5V（DCDC：LMZM23601）
-    - +5.0V（LDO：ADM7171ACPZ-5.0-R7），或者可调ADM7171ACPZ-R7；
-    - +3.0V（LDO：ADM7171ACPZ-3.0-R7），或者可调ADM7171ACPZ-R7；
-  - +3.3V（选用方案2）：
+    - 方案
+      - 见3.3V电源方案
+    - 子电源配置
+      - +5.0V（LDO：ADM7171ACPZ-5.0-R7），或者可调ADM7171ACPZ-R7；
+      - +3.0V（LDO：ADM7171ACPZ-3.0-R7），或者可调ADM7171ACPZ-R7；
+  - +3.3V（选用方案3，因为方案2缺货）：
     1. 方案1、（LDO：ADM7171ACPZ-3.3-R7），或者可调ADM7171ACPZ-R7；
     2. 方案2、DCDC：LMZM23601
+    3. 方案3、LM2736X，注意事项：boosttrap电容需要从Vout接入
   - -18V(预估实际最高：0.2A）设计额定：0.3A（DCDC：ADP5073ACPZ-R7）
     - -15V（LDO：MC79M15CDTRKG）
     - -5V（LDO：LT3094，或者 LM337IMP/NOPB）：直接从-18V，压降高，损耗大，但好在电流不大。
@@ -70,12 +74,13 @@ Vdo means dropout voltage.
 ### 3.3V电源选型（DCDC）
 
 方案1：使用可调的ADM7171，与3.0V，5.0V一致。
-方案2：使用DCDC，选型如下：
+方案2：使用DCDC，选型如下：LM2736X
 
-| module    | price | frequency                  | input V | output V    | Current | package  | others | conclusion                             |
-| :-------- | :---- | :------------------------- | :------ | :---------- | :------ | :------- | :----- | :------------------------------------- |
-| tps82130  | ¥27   | 2MHz nominal, vary by load | 3V~17V  | 0.9V to 6V  | 3A      | µSiL     |        | frequency strategy does not acceptable |
-| LMZM23601 | ¥20   | 1.0MHz or 0.7~1.1MHz sync  | 4V~36V  | 1.2V to 15V | 1A      | MicroSiP |        | good                                   |
+| module    | price | frequency               | input V | output V     | Current | package  | others | conclusion                             |
+| :-------- | :---- | :---------------------- | :------ | :----------- | :------ | :------- | :----- | :------------------------------------- |
+| tps82130  | ¥27   | 2MHz nom, vary by load  | 3V~17V  | 0.9V to 6V   | 3A      | µSiL     |        | frequency strategy does not acceptable |
+| LMZM23601 | ¥20   | 1MHz or 0.7~1.1MHz sync | 4V~36V  | 1.2V to 15V  | 1A      | MicroSiP |        | good                                   |
+| LM2736X   | ¥5    | 1.6MHz                  | 3V~18V  | 1.25V to 16V | 0.7A    | SOT-6    |        | does no intergrate inductance          |
 
 ### +5.5V电源选型（DCDC）
 
@@ -89,15 +94,20 @@ Vdo means dropout voltage.
 
 ## -17～-18V(DCDC)
 
-| module         | price | frequency                     | input V      | output V       | Current         | package  | others        | conclusion        |
-| :------------- | :---- | :---------------------------- | :----------- | :------------- | :-------------- | :------- | :------------ | :---------------- |
-| LT1931         |       |                               |              |                |                 |          |               | complecated       |
-| LM2611         |       | 1.4MHz                        | 2.7V to 14V  | −1.23~ Vin-36V | 300 mA          | SOT-23   | Cuk Converter | current too small |
-| LM25575        |       |                               |              |                |                 |          |               |                   |
-| LMZ34002       |       |                               |              |                |                 |          |               |                   |
-| ADP5073ACPZ-R7 | ¥15   | 1.2/2.4MHz or 1.0~2.6MHz sync | 2.85V to 15V | ? to Vin−39V   | 1.2A Curr-limit | 16-LFCSP |               | good              |
-| LMZM23601      | ¥20   | 1.0MHz or 0.7~1.1MHz sync     | 4V~36V       | Vin to -15V    | 1A              | MicroSiP |               | U out of range    |
+| module         | price | frequency                     | input V      | output V       | Current         | package   | others        | conclusion        |
+| :------------- | :---- | :---------------------------- | :----------- | :------------- | :-------------- | :-------- | :------------ | :---------------- |
+| LT1931         |       |                               |              |                |                 |           |               | complecated       |
+| LM2611         |       | 1.4MHz                        | 2.7V to 14V  | −1.23~ Vin-36V | 300 mA          | SOT-23    | Cuk Converter | current too small |
+| LM25575        |       |                               |              |                |                 |           |               |                   |
+| LMZ34002       |       |                               |              |                |                 |           |               |                   |
+| ADP5073ACPZ-R7 | ¥15   | 1.2/2.4MHz or 1.0~2.6MHz sync | 2.85V to 15V | ? to Vin−39V   | 1.2A Curr-limit | 16-LFCSP  |               | good              |
+| LMZM23601      | ¥20   | 1.0MHz or 0.7~1.1MHz sync     | 4V~36V       | Vin to -15V    | 1A              | MicroSiP  |               | U out of range    |
+| LM43601PWPR    | ¥20   | 200kHz~2.2MHz                 | 3.5V~36V     |                | 1A              | HTSSOP-16 | buck          | this is good      |
 
 对于ADP5073ACPZ-R7，如果过流保护点1.2A太小，可以选择ADP5074ACPZ-R7，有2.4A。
 
 What is ADIsimPower tool set in Analog Device?
+
+ADP5073ACPZ-R7 缺货，选用：LM43601PWPR（LM43602PWPR为2A的）
+
+LM43601PWPR：使用TI的webench设计的。

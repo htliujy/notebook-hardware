@@ -1,0 +1,10 @@
+# 网口芯片RTL8211FD-CG
+
+系列：
+
+- RTL8211F-CG
+- RTL8211FD-CG
+- RTL8211FI-CG
+- RTL8211FDI-CG
+
+## 参考及引用
