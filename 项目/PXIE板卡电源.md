@@ -76,11 +76,12 @@ Vdo means dropout voltage.
 方案1：使用可调的ADM7171，与3.0V，5.0V一致。
 方案2：使用DCDC，选型如下：LM2736X
 
-| module    | price | frequency               | input V | output V     | Current | package  | others | conclusion                             |
-| :-------- | :---- | :---------------------- | :------ | :----------- | :------ | :------- | :----- | :------------------------------------- |
-| tps82130  | ¥27   | 2MHz nom, vary by load  | 3V~17V  | 0.9V to 6V   | 3A      | µSiL     |        | frequency strategy does not acceptable |
-| LMZM23601 | ¥20   | 1MHz or 0.7~1.1MHz sync | 4V~36V  | 1.2V to 15V  | 1A      | MicroSiP |        | good                                   |
-| LM2736X   | ¥5    | 1.6MHz                  | 3V~18V  | 1.25V to 16V | 0.7A    | SOT-6    |        | does no intergrate inductance          |
+| module    | price | frequency               | input V  | output V     | Current | package  | others | conclusion                             |
+| :-------- | :---- | :---------------------- | :------- | :----------- | :------ | :------- | :----- | :------------------------------------- |
+| tps82130  | ¥27   | 2MHz nom, vary by load  | 3V~17V   | 0.9V to 6V   | 3A      | µSiL     |        | frequency strategy does not acceptable |
+| LMZM23601 | ¥20   | 1MHz or 0.7~1.1MHz sync | 4V~36V   | 1.2V to 15V  | 1A      | MicroSiP |        | good                                   |
+| LM2736X   | ¥5    | 1.6MHz                  | 3V~18V   | 1.25V to 16V | 0.7A    | SOT-6    |        | does not intergrate inductance         |
+| tps562208 |       | 580kHz                  | 4.5V~17V | 0.76V to 7V  | 2A      | SOT-23   |        | do not have inventory                  |
 
 ### +5.5V电源选型（DCDC）
 
