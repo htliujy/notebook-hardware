@@ -15,7 +15,7 @@ $$
 图片示意：
 
 <div  align="center">
-<img src="./DNL-Differential%20nonlinearity/Differential_linearity.svg" width = "100%" height = "100%" alt="图片" align=center />
+<img src="./.assets/DNL-Differential%20nonlinearity/Differential_linearity.svg" width = "100%" height = "100%" alt="图片" align=center />
 </div>
 
 Demonstrates A. Differential Linearity where a change in the input produces a corresponding change in output and B. Differential Non-linearity, where the relationship is not directly linear.

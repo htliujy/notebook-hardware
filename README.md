@@ -7,7 +7,7 @@
 1、图解电子系列丛书为什么有那么多的书籍，一下子说不完了，之前看到的都是《高低频电路设计与制作》没想到还有一本《高频电路设计与制作》；
 
 <div  align="center">
-<img src="./临时/高频电路设计与制作.png" width = "100%" height = "100%" alt="高频电路设计与制作" align=center />
+<img src="./.assets/临时/高频电路设计与制作.png" width = "100%" height = "100%" alt="高频电路设计与制作" align=center />
 </div>
 
 史密斯图
@@ -32,7 +32,7 @@
 最后在高频电路设计与制作中找到了对应的电路图了，里面有各种详细解释。
 
 <div  align="center">
-<img src="./临时/高频开关电路.png" width = "100%" height = "100%" alt="高频开关电路" align=center />
+<img src="./.assets/临时/高频开关电路.png" width = "100%" height = "100%" alt="高频开关电路" align=center />
 </div>
 
 负电阻

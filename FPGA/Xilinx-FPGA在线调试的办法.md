@@ -14,7 +14,7 @@ FPGA的debug也是FPGA设计中重要的一环。掌握并灵活运用FPGA设计
 如上2、3、4方法需要使用set up Debug进行配置。见下图：
 
 <div  align="center">
-<img src="./Xilinx-FPGA在线调试的办法/set-up-debug.png" width = "20%" height = "20%" alt="set-up-debug" align=center />
+<img src="./.assets/Xilinx-FPGA在线调试的办法/set-up-debug.png" width = "20%" height = "20%" alt="set-up-debug" align=center />
 </div>
 
 生成bits文件和调试探针文件后，烧录时，会有探针文件的选项，烧录后会自然弹出ILA调试窗口。
@@ -22,7 +22,7 @@ FPGA的debug也是FPGA设计中重要的一环。掌握并灵活运用FPGA设计
 烧录文件选择：
 
 <div  align="center">
-<img src="./Xilinx-FPGA在线调试的办法/烧录调试探针文件.png" width = "100%" height = "100%" alt="烧录调试探针文件" align=center />
+<img src="./.assets/Xilinx-FPGA在线调试的办法/烧录调试探针文件.png" width = "100%" height = "100%" alt="烧录调试探针文件" align=center />
 </div>
 
 不过，这个设置有太多的限制，比如：

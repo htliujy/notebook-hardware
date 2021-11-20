@@ -20,7 +20,7 @@ PXI (PCI eXtensions for Instrumentation) is based on and offers all of the benef
 如下图：
 
 <div  align="center">
-<img src="./PXI标准概述/PXI_系统-Pickering.jpg" width = "60%" height = "60%" alt="PXI_系统-Pickering" align=center />
+<img src="./.assets/PXI标准概述/PXI_系统-Pickering.jpg" width = "60%" height = "60%" alt="PXI_系统-Pickering" align=center />
 </div>
 
 翻译成中文就是：PXI(面向仪器系统的PCI扩展) 是一个基于PC的成熟平台，适用于测量和自动化系统。它提供了电源、冷却和通信总线来支持同一机箱内的多个仪器模块。PXI采用基于PC的商用PCI总线技术，但同时结合了坚固的CompactPCI模块化封装以及重要的定时和同步功能<sup>[2]</sup>。
@@ -51,19 +51,19 @@ Executive Members of the alliance include Alfamation, <font face="黑体" color=
 NI 作为最先提出该标准的厂商，在所有推出PXI相关仪器设备的商家中，NI是推出仪器设备最多的，他们声称自己有600种不同的PXI模块。如示波器，万用表，源表，射频分析仪，信号发生器等等。
 
 <div  align="center">
-<img src="./PXI标准概述/NI的PXI模块类型.jpg" width = "100%" height = "100%" alt="图片" align=center />
+<img src="./.assets/PXI标准概述/NI的PXI模块类型.jpg" width = "100%" height = "100%" alt="图片" align=center />
 </div>
 
 NI有不同的PXI机箱：
 
 <div  align="center">
-<img src="./PXI标准概述/PXI机箱-NI.png" width = "70%" height = "70%" alt="PXI机箱" align=center />
+<img src="./.assets/PXI标准概述/PXI机箱-NI.png" width = "70%" height = "70%" alt="PXI机箱" align=center />
 </div>
 
 以及各式各样的PXI模块：
 
 <div  align="center">
-<img src="./PXI标准概述/PXI示波器模块-NI.png" width = "70%" height = "70%" alt="图片" align=center />
+<img src="./.assets/PXI标准概述/PXI示波器模块-NI.png" width = "70%" height = "70%" alt="图片" align=center />
 </div>
 
 ### PXIE
@@ -86,7 +86,7 @@ PXI Express is an adaptation of PCI Express to the PXI form factor, developed in
 如下图<sup>[8]</sup>：
 
 <div  align="center">
-<img src="./PXI标准概述/The_PXI_Architecture.png" width = "100%" height = "100%" alt="The_PXI_Architecture" align=center />
+<img src="./.assets/PXI标准概述/The_PXI_Architecture.png" width = "100%" height = "100%" alt="The_PXI_Architecture" align=center />
 </div>
 
 从图中可以看出，机械结构和硬件结构基本是在CompactPCI的基础上添加新的特性。因此，许多标准，比如板卡结构，应该是去CompactPCI找对应的标准了。  
@@ -115,7 +115,7 @@ PXI Express is an adaptation of PCI Express to the PXI form factor, developed in
 另外，PXIE的 Hardware 标准文档中，介绍PXIE架构的导图将软件独立开来，硬件架构如下（包含机械架构和电气架构）：
 
 <div  align="center">
-<img src="./PXI标准概述/PXIE硬件结构定义.png" width = "100%" height = "100%" alt="图片" align=center />
+<img src="./.assets/PXI标准概述/PXIE硬件结构定义.png" width = "100%" height = "100%" alt="图片" align=center />
 </div>
 
 <font face="黑体" color=red>鉴于PXIE是相对PXI较新的标准，下面不管是机械结构还是软件，硬件，如无特殊说明，基本都是以PXIE为准。机械结构基本是以3U的机箱高度为示例，6U高度的机箱连同其板卡一般较少见，不再举例。</font>
@@ -129,7 +129,7 @@ PXI Express is an adaptation of PCI Express to the PXI form factor, developed in
 机箱高度分为3U和6U，下面是标准文档中3U高度的示例<sup>[8]</sup>：
 
 <div  align="center">
-<img src="./PXI标准概述/3U机箱示例.png" width = "100%" height = "100%" alt="图片" align=center />
+<img src="./.assets/PXI标准概述/3U机箱示例.png" width = "100%" height = "100%" alt="图片" align=center />
 </div>
 
 图中有多个不同的槽（slot），包含：
@@ -149,7 +149,7 @@ PXI Express is an adaptation of PCI Express to the PXI form factor, developed in
 板卡高度分为3U和6U，下面是标准文档中3U高度**外设模块**板卡的示例<sup>[8]</sup>：
 
 <div  align="center">
-<img src="./PXI标准概述/3U标准板卡示例.png" width = "60%" height = "60%" alt="图片" align=center />
+<img src="./.assets/PXI标准概述/3U标准板卡示例.png" width = "60%" height = "60%" alt="图片" align=center />
 </div>
 
 根据定义，其中 XJ4 为触发和时钟接口， XJ3 为通信接口（兼容CompactPCIE端子和协议，也就是兼容PCIE的通信协议）。
@@ -157,7 +157,7 @@ PXI Express is an adaptation of PCI Express to the PXI form factor, developed in
 外设模块实物照片：
 
 <div  align="center">
-<img src="./PXI标准概述/PXIE板卡照片-NI.jpg" width = "60%" height = "60%" alt="PXIE板卡照片-NI" align=center />
+<img src="./.assets/PXI标准概述/PXIE板卡照片-NI.jpg" width = "60%" height = "60%" alt="PXIE板卡照片-NI" align=center />
 </div>
 
 因为PXI是定义了风道方向的，图中散热片的鳍状散热片是顺着风向的。
@@ -165,7 +165,7 @@ PXI Express is an adaptation of PCI Express to the PXI form factor, developed in
 模块板卡（系统主控模块，系统时钟模块，外设模块都一样）尺寸：根据上面的PXI标准架构图，我们知道，PXI兼容的是CompactPCI的结构，包括模块板卡，而CompactPCI的PCB是兼容 [Eurocard](https://en.wikipedia.org/wiki/Eurocard_(printed_circuit_board)) (printed circuit board)标准的，根据维基百科的此条，我们知道 Eurocard 的大小，如下图：
 
 <div  align="center">
-<img src="./PXI标准概述/Eurocard-PCB结构尺寸.png" width = "60%" height = "60%" alt="Eurocard-PCB结构尺寸" align=center />
+<img src="./.assets/PXI标准概述/Eurocard-PCB结构尺寸.png" width = "60%" height = "60%" alt="Eurocard-PCB结构尺寸" align=center />
 </div>
 
 其中，红框和黄框才是 PXI 所使用的标准板卡尺寸，红框对应3U机箱，而黄框对应6U机箱。所以PCB大小为(PCB板厚在后面会介绍，是1.6±0.2mm)：
@@ -181,7 +181,7 @@ PXI Express is an adaptation of PCI Express to the PXI form factor, developed in
 也就是，IEEE 1101.10覆盖了PXIE所需要的PICMG 2.0标准，那我们就查看[IEEE 1101.10](https://ieeexplore.ieee.org/document/588320)标准中的相关描述即可。其中：Figure 20— 3U plug-in unit printed board with typical IEC 603-2 Type C, 3-row and expanded 5-row connector pin layout 如下：
 
 <div  align="center">
-<img src="./PXI标准概述/PXIE-PCB图示-尺寸.png" width = "100%" height = "100%" alt="PXIE-PCB图示-尺寸" align=center />
+<img src="./.assets/PXI标准概述/PXIE-PCB图示-尺寸.png" width = "100%" height = "100%" alt="PXIE-PCB图示-尺寸" align=center />
 </div>
 
 图中不只有PCB外框尺寸，也有端子引脚位置（但端子引脚位置很明显不适用于PXIE），还有PCB上需要为导轨让出的空位，以及定位孔的位置尺寸。
@@ -189,13 +189,13 @@ PXI Express is an adaptation of PCI Express to the PXI form factor, developed in
 其中，H<sub>b</sub>, D<sub>a</sub>, D<sub>b</sub>以及PCB厚度需要从 [IEEE 1101.1](https://ieeexplore.ieee.org/document/211187/) 查看，如下：
 
 <div  align="center">
-<img src="./PXI标准概述/Euroboard-Sizes-IEEE1101.1.jpg" width = "100%" height = "100%" alt="Euroboard-Sizes-IEEE1101.1" align=center />
+<img src="./.assets/PXI标准概述/Euroboard-Sizes-IEEE1101.1.jpg" width = "100%" height = "100%" alt="Euroboard-Sizes-IEEE1101.1" align=center />
 </div>
 
 PXIE 端子位置，根据PXIE硬件标准<sup>[8]</sup>：**3.7 New Module and Slot Types**，我们可以找到**系统时钟模块**的端子位置，其中，XJ3，XJ4，就是普通**外设模块**需要的端子位置了，如下：
 
 <div  align="center">
-<img src="./PXI标准概述/PXIE-系统时钟模块PCB端子位置标识.jpg" width = "70%" height = "70%" alt="PXIE-系统时钟模块PCB端子位置标识" align=center />
+<img src="./.assets/PXI标准概述/PXIE-系统时钟模块PCB端子位置标识.jpg" width = "70%" height = "70%" alt="PXIE-系统时钟模块PCB端子位置标识" align=center />
 </div>
 当然，根据PXIE硬件标准<sup>[8]</sup>，也可以自行翻阅**CompactPCI Express specification**。PXIE硬件标准中 **RULE** 描述如下：  
 **RULE:** 3U **PXI Express Peripheral Slots** SHALL meet the mechanical requirements for **3U Type 2** Peripheral Slots as defined in the **CompactPCI Express specification.**  
@@ -205,13 +205,13 @@ PXIE 端子位置，根据PXIE硬件标准<sup>[8]</sup>：**3.7 New Module and 
 我们知道，端子有系统主控模块端子，外设模块端子，以及系统时钟模块端子。下图只是展现PXIE-3U-外设模块端子（而其他关于PXI标准或PXIE-PXI混合标准的，6U机箱高度的，主控模块的，系统时钟模块的特定端子，不再赘述，需要的可以去标准文件中查找。）：
 
 <div  align="center">
-<img src="./PXI标准概述/3U_PXI_Express_Peripheral_Slot.png" width = "40%" height = "40%" alt="图片" align=center />
+<img src="./.assets/PXI标准概述/3U_PXI_Express_Peripheral_Slot.png" width = "40%" height = "40%" alt="图片" align=center />
 </div>
 
 上图为主机背板上的座子，公头（标准文档以P表示公头，J表示母头），背板的XP3，XP4，对应的是外设模块上的XJ3，XJ4，外设模块端子见下图：
 
 <div  align="center">
-<img src="./PXI标准概述/PXIE模块端子照片.png" width = "50%" height = "50%" alt="PXIE模块端子照片" align=center />
+<img src="./.assets/PXI标准概述/PXIE模块端子照片.png" width = "50%" height = "50%" alt="PXIE模块端子照片" align=center />
 </div>
 
 关于外设模块的端子，根据PXIE硬件标准<sup>[8]</sup>：**3.6.1 Module Connector Requirements**
@@ -223,13 +223,13 @@ PXIE 端子位置，根据PXIE硬件标准<sup>[8]</sup>：**3.7 New Module and 
 淘宝中查找“eHM-F2”，得到链接 <https://item.taobao.com/item.htm?spm=a230r.1.14.16.20a37c662CO6am&id=573208118080&ns=1&abbucket=14#detail>，对应的端子：
 
 <div  align="center">
-<img src="./PXI标准概述/eHM-F2端子.jpg" width = "50%" height = "50%" alt="eHM-F2端子" align=center />
+<img src="./.assets/PXI标准概述/eHM-F2端子.jpg" width = "50%" height = "50%" alt="eHM-F2端子" align=center />
 </div>
 
 这个与使用CPCI关键字找到的另一个端子：ERNI214443，看起来是一样的，链接 <https://item.taobao.com/item.htm?spm=a230r.1.14.145.60ec6a5bpzIJAa&id=644499487590&ns=1&abbucket=14#detail>，端子照片：
 
 <div  align="center">
-<img src="./PXI标准概述/ERNI214443端子.jpg" width = "50%" height = "50%" alt="ERNI214443端子" align=center />
+<img src="./.assets/PXI标准概述/ERNI214443端子.jpg" width = "50%" height = "50%" alt="ERNI214443端子" align=center />
 </div>
 
 不过，根据网页描述，<font face="黑体" color=red>这个端子的插拔次数才250次</font>，这也太少了，是不是商家胡乱写的？
@@ -237,7 +237,7 @@ PXIE 端子位置，根据PXIE硬件标准<sup>[8]</sup>：**3.7 New Module and 
 在google中查找 “ADF-F-3-10-2-F-25” 找到对应的供应商型号：ERNI 973028，如下图：
 
 <div  align="center">
-<img src="./PXI标准概述/ERNI973028-ADF-F-3-10-2-F-25端子.jpeg" width = "50%" height = "50%" alt="ERNI973028端子" align=center />
+<img src="./.assets/PXI标准概述/ERNI973028-ADF-F-3-10-2-F-25端子.jpeg" width = "50%" height = "50%" alt="ERNI973028端子" align=center />
 </div>
 
 在淘宝上搜索，就有许多对应的器件了，如 <https://item.taobao.com/item.htm?spm=a230r.1.14.170.34ab927eJq1dvJ&id=570187622258&ns=1&abbucket=14#detail>，以及 <https://item.taobao.com/item.htm?spm=a1z10.3-c-s.w4002-21252187955.10.7f591cb7pNaNP5&id=642719157971>。
@@ -272,13 +272,13 @@ PXIE 主控插槽的引脚既可以定义为4个4通道的PCIE，也可以定义
 配置为4个连接的引脚定义如下<sup>[8]</sup>:
 
 <div  align="center">
-<img src="./PXI标准概述/主控引脚定义-4连接.png" width = "100%" height = "100%" alt="主控引脚定义-4连接" align=center />
+<img src="./.assets/PXI标准概述/主控引脚定义-4连接.png" width = "100%" height = "100%" alt="主控引脚定义-4连接" align=center />
 </div>
 
 配置为2个连接（一个8通道和一个16通道）的引脚定义<sup>[8]</sup>:
 
 <div  align="center">
-<img src="./PXI标准概述/主控引脚定义-2连接.png" width = "100%" height = "100%" alt="主控引脚定义-2连接" align=center />
+<img src="./.assets/PXI标准概述/主控引脚定义-2连接.png" width = "100%" height = "100%" alt="主控引脚定义-2连接" align=center />
 </div>
 
 #### 外设模块端子引脚定义
@@ -286,7 +286,7 @@ PXIE 主控插槽的引脚既可以定义为4个4通道的PCIE，也可以定义
 PXIE 外设模块插槽引脚定义如下<sup>[8]</sup>:
 
 <div  align="center">
-<img src="./PXI标准概述/PXIE设备引脚定义.png" width = "100%" height = "100%" alt="图片" align=center />
+<img src="./.assets/PXI标准概述/PXIE设备引脚定义.png" width = "100%" height = "100%" alt="图片" align=center />
 </div>
 
 - 通信接口：可以看出，这个应该是支持8通道的PCIE的，因为他的接口包含了8对输入（成对出现是因为他们是差分信号线）和8对输出： 1PER0-7(n-p) ，1PET0-7(n-p)
@@ -302,7 +302,7 @@ PXIE 外设模块插槽引脚定义如下<sup>[8]</sup>:
 PXIE时钟插槽引脚定义如下<sup>[8]</sup>：
 
 <div  align="center">
-<img src="./PXI标准概述/PXIE时钟插槽引脚定义.png" width = "100%" height = "100%" alt="PXIE时钟插槽引脚定义" align=center />
+<img src="./.assets/PXI标准概述/PXIE时钟插槽引脚定义.png" width = "100%" height = "100%" alt="PXIE时钟插槽引脚定义" align=center />
 </div>
 
 时钟插槽是兼容普通外设模块的，若以普通的PXIE外设模块插入，那么使用的是XP4/XJ4，XP3/XJ3端子。TP1/TJ1，TP2/TJ2不起作用。
@@ -315,7 +315,7 @@ PXIE时钟插槽引脚定义如下<sup>[8]</sup>：
 其中，时钟信号（**PXIe_CLK100**），有阻抗匹配要求（外设模块上），**推荐阻抗**如下：
 
 <div  align="center">
-<img src="./PXI标准概述/PXIE_外设模块_100M时钟_阻抗匹配.png" width = "100%" height = "100%" alt="PXIE_外设模块_100M时钟_阻抗匹配" align=center />
+<img src="./.assets/PXI标准概述/PXIE_外设模块_100M时钟_阻抗匹配.png" width = "100%" height = "100%" alt="PXIE_外设模块_100M时钟_阻抗匹配" align=center />
 </div>
 
 另外，同步信号 **PXIe_SYNC100** ，阻抗匹配要求与上图 **PXIe_CLK100** 的一样
@@ -332,7 +332,7 @@ PXIE时钟插槽引脚定义如下<sup>[8]</sup>：
 触发信号（ **Trigger Bus** ）需要有特定的阻抗，如下（下图是PXIE的，与PXI稍微不同）：
 
 <div  align="center">
-<img src="./PXI标准概述/PXIE_Trigger_Bus_terminal阻抗.png" width = "50%" height = "50%" alt="PXIE_Trigger_Bus_terminal阻抗" align=center />
+<img src="./.assets/PXI标准概述/PXIE_Trigger_Bus_terminal阻抗.png" width = "50%" height = "50%" alt="PXIE_Trigger_Bus_terminal阻抗" align=center />
 </div>
 
 另外，触发信号还有些规则，但与外设模块关系不大的，主要是对背板和系统时钟模块的要求，这里没有展开。
@@ -353,7 +353,7 @@ PXIE时钟插槽引脚定义如下<sup>[8]</sup>：
 PXIE 外设模块时钟信号应用举例(举例，不是标准)：
 
 <div  align="center">
-<img src="./PXI标准概述/PXIE_外设模块时钟信号应用举例.png" width = "50%" height = "50%" alt="PXIE_外设模块时钟信号应用举例" align=center />
+<img src="./.assets/PXI标准概述/PXIE_外设模块时钟信号应用举例.png" width = "50%" height = "50%" alt="PXIE_外设模块时钟信号应用举例" align=center />
 </div>
 
 ### 供电电源
@@ -361,7 +361,7 @@ PXIE 外设模块时钟信号应用举例(举例，不是标准)：
 如下图：
 
 <div  align="center">
-<img src="./PXI标准概述/PXIE电源电压及其供电电流标准.jpg" width = "80%" height = "80%" alt="PXIE电源电压及其供电电流标准" align=center />
+<img src="./.assets/PXI标准概述/PXIE电源电压及其供电电流标准.jpg" width = "80%" height = "80%" alt="PXIE电源电压及其供电电流标准" align=center />
 </div>
 
 <font face="黑体" color=red>可以看出，相对于PXI，PXIE标准提高了12V的电流能力，但是，删除了-12V的电源。并且，将5V输出能力，从单个外设模块2A，降低到所有外设模块共用0.5A，接近摆设。</font>
@@ -377,7 +377,7 @@ PXIE 外设模块时钟信号应用举例(举例，不是标准)：
 根据[PXI联盟官网](https://www.pxisa.org/About/MarketAcceptance.aspx)，最近每年PXI产业的产值都快速增长。
 
 <div  align="center">
-<img src="./PXI标准概述/PXIRevenueChart.png" width = "60%" height = "60%" alt="PXIRevenueChart" align=center />
+<img src="./.assets/PXI标准概述/PXIRevenueChart.png" width = "60%" height = "60%" alt="PXIRevenueChart" align=center />
 </div>
 
 虽然2017年刚超过10亿美元，但若是看增长曲线，这10年间的增长非常可观。

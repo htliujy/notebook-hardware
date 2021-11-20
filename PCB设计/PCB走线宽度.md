@@ -20,11 +20,11 @@ PCB铜箔的厚度是以OZ为单位，1OZ意思是重量1OZ的铜均匀平铺在
 
 - ProPCB-PCB设计助手
     <div  align="center">
-    <img src="./PCB走线宽度/ProPCB-PCB设计助手界面.png" width = "70%" height = "70%" alt="ProPCB-PCB设计助手界面"   align=center />
+    <img src="./.assets/PCB走线宽度/ProPCB-PCB设计助手界面.png" width = "70%" height = "70%" alt="ProPCB-PCB设计助手界面"   align=center />
     </div>
 - ANSI-PCB走线宽度计算器
     <div  align="center">
-    <img src="./PCB走线宽度/ANSI-PCB走线宽度计算器.png" width = "70%" height = "70%" alt="ANSI-PCB走线宽  度计算器" align=center />
+    <img src="./.assets/PCB走线宽度/ANSI-PCB走线宽度计算器.png" width = "70%" height = "70%" alt="ANSI-PCB走线宽  度计算器" align=center />
     </div>
 
 Todolist:

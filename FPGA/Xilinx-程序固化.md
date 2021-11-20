@@ -11,7 +11,7 @@ ZYNQ7000 SOC可以从Flash启动，也可以从SD卡启动。因此，可以将�
 根据Xilinx 的文档 **ug585-Zynq-7000 SoC Technical Reference Manual**，需要配置MIO[8]-MIO[2]，以配置启动选项，如JTAG，NAND，NOR，QSPI，SD卡，见下图：
 
 <div  align="center">
-<img src="./Xilinx-程序固化/Boot-Mode-MIO-Strapping-Pins.png" width = "100%" height = "100%" alt="Boot-Mode-MIO-Strapping-Pins" align=center />
+<img src="./.assets/Xilinx-程序固化/Boot-Mode-MIO-Strapping-Pins.png" width = "100%" height = "100%" alt="Boot-Mode-MIO-Strapping-Pins" align=center />
 </div>
 
 上电之前，需要配置好启动的方式，米联客开发板中，使用拨码开关进行启动方式的配置。
@@ -30,7 +30,7 @@ ZYNQ7000 SOC可以从Flash启动，也可以从SD卡启动。因此，可以将�
 在zynq上运行程序的时候，加载过程中肯定需要用到一个文件，那就是 FSBL ， FSBL 的全称为first stage boot loader，从字面上就能够看出这是zynq启动第一阶段的加载程序，经过了fsbl这一阶段，后面系统才能够运行裸奔程序或者是引导操作系统的u-boot。启动过程如下图：<sup>[1]</sup>：
 
 <div  align="center">
-<img src="./Xilinx-程序固化/ZYNQ启动过程.jpg" width = "100%" height = "100%" alt="ZYNQ启动过程" align=center />
+<img src="./.assets/Xilinx-程序固化/ZYNQ启动过程.jpg" width = "100%" height = "100%" alt="ZYNQ启动过程" align=center />
 </div>
 
 也可以在SDK中，新建 FSBL 项目时，看其简介：
@@ -52,7 +52,7 @@ First Stage Bootloader (FSBL) for Zynq. The FSBL configures the FPGA with HW bit
 - 为什么我们项目中本来就有一个独立的项目：platform平台了，还要一个板支持包？
 
 <div  align="center">
-<img src="./Xilinx-程序固化/PROJECT_bsp项目是什么.png" width = "50%" height = "50%" alt="PROJECT_bsp项目是什么" align=center />
+<img src="./.assets/Xilinx-程序固化/PROJECT_bsp项目是什么.png" width = "50%" height = "50%" alt="PROJECT_bsp项目是什么" align=center />
 </div>
 
 ### BOOT.bin 文件如何生成
@@ -79,7 +79,7 @@ PS：上电前需要将bootmode配置成SD卡模式。
 烧录选项见下图：
 
 <div  align="center">
-<img src="./Xilinx-程序固化/QSPI-Flash烧录.png" width = "50%" height = "50%" alt="QSPI-Flash烧录" align=center />
+<img src="./.assets/Xilinx-程序固化/QSPI-Flash烧录.png" width = "50%" height = "50%" alt="QSPI-Flash烧录" align=center />
 </div>
 
 断电重启后，因为拨码开关已经配置到了QSPI Flash，所以PS系统会直接从Flash启动，运行BOOT.bin里面的文件。而这个BOOT.bin是和SD卡中的一模一样的，不需要配置**BootModeRegister = JTAG_MODE;**

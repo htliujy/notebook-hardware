@@ -39,7 +39,7 @@ Modbus RTU frame format (primarily used on asynchronous serial data lines like R
 也就是：
 
 <div  align="center">
-<img src="./Modbus通信协议/Modbus%20RTU数据帧结构.png" width = "80%" height = "80%" alt="Modbus RTU数据帧结构.png" align=center />
+<img src="./.assets/Modbus通信协议/Modbus%20RTU数据帧结构.png" width = "80%" height = "80%" alt="Modbus RTU数据帧结构.png" align=center />
 </div>
 
 Modbus ASCII数据帧结构<sup>[2]</sup>：
@@ -58,7 +58,7 @@ Modbus ASCII frame format (primarily used on 7- or 8-bit asynchronous serial lin
 也就是：
 
 <div  align="center">
-<img src="./Modbus通信协议/Modbus%20ASCII数据帧结构.png" width = "80%" height = "80%" alt="Modbus ASCII数据帧结构" align=center />
+<img src="./.assets/Modbus通信协议/Modbus%20ASCII数据帧结构.png" width = "80%" height = "80%" alt="Modbus ASCII数据帧结构" align=center />
 </div>
 
 Modbus TCP数据帧结构<sup>[2]</sup>：

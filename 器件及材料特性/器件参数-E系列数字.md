@@ -71,13 +71,13 @@ List of values for each E series<sup>[1]</sup>:
 公式描述<sup>[3]</sup>：
 
 <div  align="center">
-<img src="./器件参数-E系列数字/Mathcad计算Exponential%20spacing电阻值.jpg" width = "100%" height = "100%" alt="图片" align=center />
+<img src="./.assets/器件参数-E系列数字/Mathcad计算Exponential%20spacing电阻值.jpg" width = "100%" height = "100%" alt="图片" align=center />
 </div>
 
 数字参数曲线：
 
 <div  align="center">
-<img src="./器件参数-E系列数字/Exponential%20spacing阻值曲线.jpg" width = "100%" height = "100%" alt="图片" align=center />
+<img src="./.assets/器件参数-E系列数字/Exponential%20spacing阻值曲线.jpg" width = "100%" height = "100%" alt="图片" align=center />
 </div>
 
 ## 参考及引用

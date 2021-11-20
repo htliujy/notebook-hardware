@@ -13,7 +13,7 @@ LVDS: Low-voltage differential signaling, also known as TIA/EIA-644<sup>[1]</sup
 在Xilinx FPGA 中，LVDS接口的电平为<sup>[2]</sup>:
 
 <div  align="center">
-<img src="./Xilinx-LVDS接口/Zynq-7000-LVDS-DC-Specifications.png" width = "100%" height = "100%" alt="Zynq-7000-LVDS-DC-Specifications" align=center />
+<img src="./.assets/Xilinx-LVDS接口/Zynq-7000-LVDS-DC-Specifications.png" width = "100%" height = "100%" alt="Zynq-7000-LVDS-DC-Specifications" align=center />
 </div>
 
 也就是说，在Zynq 7芯片中，不论是LVDS_25还是LVDS，其输入、输出电平都是兼容标准的LVDS的，同时，其输入电压兼容范围非常广：1、差模 100mV < VIDIFF < 600mV；2、共模 300mV < VICM < 1.425mV。
@@ -39,7 +39,7 @@ It is acceptable to have differential inputs such as LVDS and LVDS_25 in I/O ban
 当LVDS作为输入引脚时，如果确实没有办法满足条件时，可以使用AC耦合的解决方案。其原理在于所谓的电平不匹配都是共模电压不匹配，如果使用如下图所示的电路，其中AC耦合电容将DC电压阻断，也就是TX端的共模电压不会传到RX端，RX端只能接收到差分的输入信号，而RX端的共模电压通过RBIAS进行调节，以满足RX端接收到的绝对电压不会超过VCCO+0.2的要求<sup>[5]</sup>。
 
 <div  align="center">
-<img src="./Xilinx-LVDS接口/Example-circuit-for-AC-coupled-and-DC-biased-Differential-Clock-input.png" width = "80%" height = "80%" alt="图片" align=center />
+<img src="./.assets/Xilinx-LVDS接口/Example-circuit-for-AC-coupled-and-DC-biased-Differential-Clock-input.png" width = "80%" height = "80%" alt="图片" align=center />
 </div>
 
 ### LVDS Interface Checklist
@@ -49,13 +49,13 @@ It is acceptable to have differential inputs such as LVDS and LVDS_25 in I/O ban
 HP IO:
 
 <div  align="center">
-<img src="./Xilinx-LVDS接口/hp_checklist_LVDS.png" width = "100%" height = "100%" alt="图片" align=center />
+<img src="./.assets/Xilinx-LVDS接口/hp_checklist_LVDS.png" width = "100%" height = "100%" alt="图片" align=center />
 </div>
 
 HR IO:
 
 <div  align="center">
-<img src="./Xilinx-LVDS接口/hr_checklist_LVDS25.png" width = "100%" height = "100%" alt="图片" align=center />
+<img src="./.assets/Xilinx-LVDS接口/hr_checklist_LVDS25.png" width = "100%" height = "100%" alt="图片" align=center />
 </div>
 
 根据图中的公式，其重点就是，引脚输入电压最高不得超过VCCO+0.2V，也就是：Vin = Vcm + VD/2 < VCCO +0.2V。

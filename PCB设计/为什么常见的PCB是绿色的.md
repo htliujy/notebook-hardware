@@ -6,7 +6,7 @@
 - 然后绿色就变成主流，交齐，成本都有优势，除非装13，否者还是直接无脑选绿色就是了。
 
 <div  align="center">
-<img src="./为什么常见的PCB是绿色的/PCB颜色.png" width = "100%" height = "100%" alt="PCB颜色" align=center />
+<img src="./.assets/为什么常见的PCB是绿色的/PCB颜色.png" width = "100%" height = "100%" alt="PCB颜色" align=center />
 </div>
 
 如下是简书原文<sup>[1]</sup>:

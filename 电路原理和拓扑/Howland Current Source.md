@@ -7,7 +7,7 @@
 如下图，是否是为了小电流的恒流源而设计的呢？
 
 <div  align="center">
-<img src="./Howland%20Current%20Source/howland_circuit.png" width = "80%" height = "80%" alt="图1豪兰德电流源" align=center />
+<img src="./.assets/Howland%20Current%20Source/howland_circuit.png" width = "80%" height = "80%" alt="图1豪兰德电流源" align=center />
 </div>
 
 假设运放是理想运放，满足输入阻抗无穷大，增益无穷大，根据R1和R2的分压原理，有：
@@ -63,7 +63,7 @@ $$
 但是，用公式表达太抽象了，若是可以用原理来解释，就会更清晰，电路原理分析如下图：
 
 <div  align="center">
-<img src="./Howland%20Current%20Source/Howlandcurrentsource-operation.jpg" width = "80%" height = "80%" alt="Howlandcurrentsource-operation" align=center />
+<img src="./.assets/Howland%20Current%20Source/Howlandcurrentsource-operation.jpg" width = "80%" height = "80%" alt="Howlandcurrentsource-operation" align=center />
 </div>
 
 豪兰德模型分析：
@@ -78,7 +78,7 @@ $$
 豪兰德等效模型
 
 <div  align="center">
-<img src="./Howland%20Current%20Source/howland电流源模型分析.jpg" width = "80%" height = "80%" alt="豪兰德等效模型" align=center />
+<img src="./.assets/Howland%20Current%20Source/howland电流源模型分析.jpg" width = "80%" height = "80%" alt="豪兰德等效模型" align=center />
 </div>
 
 疑问：

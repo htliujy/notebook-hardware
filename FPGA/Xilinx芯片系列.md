@@ -9,7 +9,7 @@ SPARTAN<sup>6</sup>，SPARTAN<sup>7</sup>，Artix, Artix UltraScale+<sup>TM</sup
 如下图：
 
 <div  align="center">
-<img src="./Xilinx芯片系列/Xilinx芯片系列.png" width = "100%" height = "100%" alt="Xilinx芯片系列" align=center />
+<img src="./.assets/Xilinx芯片系列/Xilinx芯片系列.png" width = "100%" height = "100%" alt="Xilinx芯片系列" align=center />
 </div>
 
 从图中可以看出，Xilinx的FPGA分类可以从几个方面分：
@@ -33,7 +33,7 @@ SPARTAN<sup>6</sup>，SPARTAN<sup>7</sup>，Artix, Artix UltraScale+<sup>TM</sup
 也就是供应商规格，见下图<sup>[2]</sup>：
 
 <div  align="center">
-<img src="./Xilinx芯片系列/Xilinx订货编号.png" width = "100%" height = "100%" alt="Xilinx订货编号" align=center />
+<img src="./.assets/Xilinx芯片系列/Xilinx订货编号.png" width = "100%" height = "100%" alt="Xilinx订货编号" align=center />
 </div>
 
 规格标识解析（字段从左往右数）：
