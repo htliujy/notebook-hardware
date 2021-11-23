@@ -1,5 +1,7 @@
 # FPGA 硬件介绍
 
+什么是FPGA？
+
 FPGA 都有哪些资源？见下图，综合报告总会提现的资源有：
 
 <div  align="center">
