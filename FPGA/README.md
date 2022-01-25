@@ -11,3 +11,7 @@ FPGA 都有哪些资源？见下图，综合报告总会提现的资源有：
 Zynq SOC中，如何实现PS与PL高速通信，PS如何通过EMIO到达PL的I/O引脚？
 
 - HDLBits <https://hdlbits.01xz.net/wiki/Main_Page>
+
+## 资源
+
+- 米联客官网<https://www.uisrc.com/>
