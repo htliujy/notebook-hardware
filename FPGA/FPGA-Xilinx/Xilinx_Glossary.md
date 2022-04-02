@@ -22,6 +22,7 @@ xilinx的说明文档用了太多的专业术语以及缩略语了，记不下�
 
 硬件：
 
+- APU: Application Processing Unit
 - PS: Processing System
 - PL: Programable Logic
 - AMBA: Advanced Microcontroller Bus Architecture（高级微控制器总线架构）是用于ARM架构下系统芯片（SoC）设计中的一种总线架构；
