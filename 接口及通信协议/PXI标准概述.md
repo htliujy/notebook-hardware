@@ -297,6 +297,55 @@ PXIE 外设模块插槽引脚定义如下<sup>[8]</sup>:
 
 如果要负压电源，就基本上要在板子上使用开关电源了，对于高精度测量仪器，是个挑战，但可以将开关频率设置成与采样率一样。这样可以降低干扰。
 
+**XJ4相关接口备注：**
+
+1. GA【0-4】：
+   1. 这几个信号用于外设板识别自己在哪个槽上。二进制码，在背板上接地表示0、悬空表示1；
+   2. 外设板自己做上拉即可，再识别0，1即可。对于1.8V CMOS， 1.8V-10kΩ上拉输入FPGA即可。
+2. SYSEN#： 不接；
+   1. 这个信号用于识别系统槽，在背板系统槽上接地、其他槽上悬空。外设板不会用到
+3. WAKE#：不接；
+   1. 用于外设板唤醒系统板
+4. ALERT#：不接；
+   1. SMBus用的
+5. PXI_TRIG【0-7】：inout，
+   1. 触发信号。
+   2. 标准文档中加入RC消除振铃。
+6. ATNLED：不接
+   3. 用于点亮外设板的LED
+7. ATNSW#：不接
+   1. 外设板直接接开关到地，系统板上拉。不支持热插拔的外设板，该引脚应悬空；支持热插拔但没有该开关的外设板，应直接接高电平
+8. PXI_STAR：用Inout；
+9. PXI_CLK10:
+   1. The receiving circuitry for this signal on the backplane SHALL be TTL compatible and 5V tolerant, with VIH no greater than 2.0 V and VIL no less than 0.8 V.
+10. PXI_LBL6、PXI_LBR6: 菊花链传递，用Inout；
+
+**XJ3相关接口备注：**
+
+1. PXIE_CLK100：
+   1. LVPECL接口，输入
+2. PXIE_SYNC100
+   1. LVPECL接口，输入
+3. PXIE_DSTARC,PXIE_DSTARB, PXIE_DSTARA:
+   1. Differential Triggers （与timingslot交互的）
+   2. PXIe_DSTARA: LVPECL input——需要加转LVDS的芯片。MAX9374AEKA+T
+   3. PXIe_DSTARB：LVDS input
+   4. PXIe_DSTARC：LVDS output
+4. PRSNT#
+   1. 0R 接地即可，热插拔识别
+5. PWREN#
+   1. 0R 接地即可，使能电源
+6. SMBDAT, SMBCLK: SMBus总线，不接。
+7. MPWRGD：
+   2. 输出口，板卡拉高表示板卡正常工作。
+8. PERST#： input
+   1. 3.3V，1.8V则需要电平转换
+   2. 背板给的复位信号
+9. RefClk
+   1. PCIE参考时钟，跟PCIE那样连接即可。
+10. PET【0-7】，PER【0-7】：PCIE收发
+    1. 哪个是板卡收，哪个是板卡发？
+
 #### 系统时钟模块端子引脚定义
 
 PXIE时钟插槽引脚定义如下<sup>[8]</sup>：
