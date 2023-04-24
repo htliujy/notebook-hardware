@@ -2,6 +2,18 @@
 
 MOV (Metal Oxide Varistor)
 
+类似保护功能的器件：
+
+ESD, TVS, TSS, MOV, GDT
+
+另外，PLED是如何作为保护管的？
+
+这些保护器件的符号如下：
+
+<div  align="center">
+<img src="./.assets/压敏电阻-MOV/保护管符号.png" width = "100%" height = "100%" alt="图片" align=center />
+</div>
+
 ## Choosing the right MOV for Protection<sup>[2]</sup>
 
 You should know about the various numbers of parameters of a MOV to choose the right device for your pieces of equipment. The **Specification of a MOV** depends on the following
