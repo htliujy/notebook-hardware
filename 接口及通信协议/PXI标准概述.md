@@ -244,6 +244,10 @@ PXIE 端子位置，根据PXIE硬件标准<sup>[8]</sup>：**3.7 New Module and 
 
 其实，直接在淘宝搜索CPCI就能找到这些的了（CPCI非官方标准写法，但用标准写法：**Compact PCI 或 Compact PCI 端子**，找不到），只是搜索CPCI出来的端子太多了，不容易直接分辨出来。
 
+<font face="黑体" color=red>这两种端子都是压接件。引脚是拱形弹片，插入PCB即可，不必焊接。</font>
+
+引脚对PCB孔有严格要求。根据[开源硬件网站](https://ohwr.org/)上的项目[PXI express FMC Carrier Board (SPEXI7U)](https://ohwr.org/project/spexi7u/wikis/home)，PCB孔: PRESS-FIT TECHNOLOGY diam. 0.6mm +/-0.05, 但实际常用的PCB工艺下不能使用0.6mm的孔，会插不进去，经过试验，0.75mm的过孔才勉强装得下端子，猜测原因是0.6mm是指的最终成型的过孔。但因为过孔内有铜箔和镀锡，导致孔内径变小了。所以开始时打0.75的过孔正好合适。
+
 ### 其他结构
 
 其他结构件，比如导轨，手柄，紧固螺丝，可以直接使用市面上现成的成套解决方案。但散热片可能仍得定制或适配。
