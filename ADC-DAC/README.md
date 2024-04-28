@@ -12,7 +12,7 @@
 - THD: Total harmonic distortion
 - SINAD: Signal-to-Noise and Distortion
 - ENOB: Effective Number of Bits
-- THD + N
+- THD + N: Total Harmonic Distortion Plus Noise
 
 - Settling time:
 - glitch:
@@ -72,6 +72,51 @@ $$V_{out} = AV_{ref}\cdot \frac{Code_{ACT}}{Code_{FS}} + B$$
 A为增益拟合系数 A = 1+ Gain Error ，B为Offset Error。
 
 ## ENOB
+
+要理解有效位数（Effective Number of Bits），可以先理解理想ADC的位数和其量化噪声的关系。
+
+理想ADC量化误差（Quantization Error）如下：
+
+<div  align="center">
+<img src="./.assets/ADC_Transfer_Function_and_Quantization_Error.png" width = "50%" height = "50%" alt="图片" align=center />
+</div>
+
+量化误差传递函数及量化噪声计算如下：
+
+<div  align="center">
+<img src="./.assets/Quantization_Noise.png" width = "50%" height = "50%" alt="图片" align=center />
+</div>
+
+图中，q代表LSB，理想的量化误差在$±\dfrac{q}{2}$之间，如果周期为T，那么斜率$s=\dfrac{q}{T}$，那么周期为$T=\dfrac{q}{s}$，误差：
+
+$$E_Q(t)=st \quad (-\frac{q}{2s}   \leq t\leq\frac{q}{2s})$$
+
+对应量化噪声有效值为：
+
+$$
+\begin{aligned}
+RMS_{QN} &= \frac{1}{T}\sqrt{\int_{-q/2s}^{+q/2s}E_Q^2dt}\\
+&= \frac sq\sqrt{\int_{-q/2s}^{+q/2s}\left(st\right)^2dt}\\
+&= \frac q{\sqrt{12}}
+\end{aligned}
+$$
+
+SINAD Signal-to-Noise and Distortion(信纳比)：
+
+$$
+\begin{aligned}
+SINAD &= 20\mathrm{log}_{10}\frac{RMS_{FS\_SINE}}{RMS_{QN}}\\
+&= 20\mathrm{log}_{10}\frac{q2^N/2\sqrt{2}}{q/\sqrt{12}}\\
+&= 20\mathrm{log}_{10}2^N+20\mathrm{log}_{10}\sqrt{\frac{3}{2}}\\
+&\approx 6.02\times N + 1.76
+\end{aligned}
+$$
+
+那么反推，对于非理想ADC，其等效有效位数ENOB为：
+
+$$ENOB \approx \dfrac{SINAD - 1.76}{6.02}$$
+
+式中的SINAD是以dB量纲表达的数值。
 
 ## DNL
 
