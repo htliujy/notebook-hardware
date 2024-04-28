@@ -118,6 +118,14 @@ $$ENOB \approx \dfrac{SINAD - 1.76}{6.02}$$
 
 式中的SINAD是以dB量纲表达的数值。
 
+## Settling Time
+
+通常衡量settling time的指标为输出稳定到1LSB的时间，不过，对于12位DAC，1LSB代表1/2^12 FS = 0.0244% FS，仍然可以测量，但对于16位的ADC，1LSB代表0.00153% FS，对于测量系统将是一种挑战，尤其是settling time本身就很窄了。 <sup>[5]</sup>
+
+疑问：为什么Settling Time可以通过系统的settling time 根据下面公式推导？ <sup>[5]</sup>
+
+$$\text{DAC Settling Time}=\sqrt{\text{(Total Settling Time)}^2-\text{(Op Amp Settling Time)}^2}$$
+
 ## DNL
 
 定义见下图 <sup>[6]</sup>:
@@ -156,6 +164,16 @@ INL是关于非线性的误差，是指失调，增益误差被校正后，实�
 </div>
 
 **但我看不出来，为何？**
+
+另外，如下的解释似乎更准确<sup>[5]</sup>：
+
+Code-dependent glitches will produce both out-of-band and in-band harmonics when the DAC is reconstructing a digitally generated sinewave as in a Direct Digital Synthesis (DDS) system. For instance, the mid-scale glitch occurs twice during a single cycle of a reconstructed sinewave (at each mid-scale crossing), and will therefore produce a second harmonic of the sinewave, as shown in Figure 4. Note that the higher order harmonics of the sinewave, which also alias back into the Nyquist bandwidth (dc to fc/2), cannot be filtered.
+
+Although segmented DAC architectures can be used to greatly minimize the distortion caused by code-dependent glitches, the distortion can never be completely eliminated.
+
+glitch 产生原因主要分2种：电容性耦合以及开关时序。
+
+电容性耦合产生的glitch（可否认为是一种振铃）影响较小，而开关导致的glitch对信号的影响更大：
 
 Capacitive coupling frequently produces roughly equal positive and negative spikes (sometimes called a doublet glitch) which more or less cancel in the longer term.
 The glitch produced by switch timing differences is generally unipolar, much larger, and of greater concern<sup>[5]</sup>.
