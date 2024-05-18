@@ -4,6 +4,14 @@
 
 ## 硬件电路
 
+单总线协议一般包含外部上拉电阻，而主从器件IO均采用OD（或OC）电路。
+
+原理图如下： <sup>[3]</sup>
+
+<div  align="center">
+<img src="./.assets/单总线协议1wire/1_Wire_Sch.png" width = "100%" height = "100%" alt="图片" align=center />
+</div>
+
 ## 脉冲时序
 
 脉冲格式主要分3种 <sup>[2]</sup>：
