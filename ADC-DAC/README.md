@@ -5,7 +5,29 @@
 1. glitch是否引起二次谐波，原理是什么？
 2. Dithering 如何提升DAC的性能，如何提升的？
 
-指标参数：
+术语：
+
+- FSR: Full Scale Range
+- LSB: Least Significant Bit
+  - 描述误差（DNL，INL，Gain Error，Offset）时，LSB和FSR之间的转换公式？
+
+## 指标参数
+
+主要参数：精度和速度
+
+- 分辩率（Resolution）
+- 转换速率（Conversion Rate）
+
+问：
+
+1. **哪些评价指标是ADC或DAC专有的，哪些指标是ADC和DAC公用的？**
+2. **直流应用领域应该关注哪些参数，交流应用呢？**
+
+### 参数分类
+
+直流，交流？频域，时域？
+
+#### 频域
 
 - SFDR: spurious free dynamic range, 无散杂动态范围
   - Dynamic Range什么意思？
@@ -14,22 +36,33 @@
 - ENOB: Effective Number of Bits
 - THD + N: Total Harmonic Distortion Plus Noise
 
-- Settling time:
-- glitch:
+#### 时域
 
+- Quantizing Error 量化误差
 - Gain Error
+- Full Scale Error
 - Offset Error
 - DNL: Differential nonlinearity, 微分非线性；
 - INL: Integral nonlinearity, 积分非线性
+  - 非线性，对应：线性度（Linearity）
 
-- FSR: Full Scale Range
-- LSB: Least Significant Bit
-  - 描述误差（DNL，INL，Gain Error，Offset）时，LSB和FSR之间的转换公式？
+瞬态
 
-**哪些是时域的指标，哪些是频域的？**
-**哪些评价指标是ADC或DAC专有的，哪些指标是ADC和DAC公用的。**
+- Settling time
+- glitch(DAC)
+- Kickback(ADC)
+  - 问：哪些类型的ADC会有kickback, 哪些类型的ADC没有？
 
-## SFDR
+噪声
+
+- Noise-Free Resolution
+- Effective Resolution
+
+瞬态和噪声参数，姑且算为时域的吧！
+
+具体分析及计算
+
+### SFDR
 
 In ADCs, Spurious-Free Dynamic Range (SFDR) is the ratio of the RMS amplitude of the carrier frequency (maximum signal component) to the RMS value of the next largest noise or harmonic distortion component. SFDR is usually measured in dBc (with respect to the carrier frequency amplitude) or in dBFS (with respect to the ADC's full-scale range). <sup>[1]</sup>
 
@@ -47,7 +80,7 @@ SFDR can be specified with respect to full-scale (dBFS) or with respect to the a
 
 SFDR = Fundamental input energy – Max (all frequency bins except fundamental)
 
-## THD
+### THD
 
 一般是前面5阶谐波对THD影响较大。
 
@@ -57,21 +90,13 @@ THD = Summation of harmonic energy / Fundamental input energy
 
 energy，能量，那就是幅度的二次方。
 
-## SINAD
+### SINAD
 
 The Signal-to-Noise and Distortion (SINAD) specification provides information regarding the noise and harmonic energy present in the frequency spectrum.
 
 SINAD = Fundamental input energy / (Summation of noise + distortion energy)
 
-## Gain Error and Offset Error
-
-DAC的输出电压线性拟合：
-
-$$V_{out} = AV_{ref}\cdot \frac{Code_{ACT}}{Code_{FS}} + B$$
-
-A为增益拟合系数 A = 1+ Gain Error ，B为Offset Error。
-
-## ENOB
+### ENOB
 
 要理解有效位数（Effective Number of Bits），可以先理解理想ADC的位数和其量化噪声的关系。
 
@@ -118,15 +143,15 @@ $$ENOB \approx \dfrac{SINAD - 1.76}{6.02}$$
 
 式中的SINAD是以dB量纲表达的数值。
 
-## Settling Time
+### Quantizing Error, Gain Error, Full Scale Error and Offset Error
 
-通常衡量settling time的指标为输出稳定到1LSB的时间，不过，对于12位DAC，1LSB代表1/2^12 FS = 0.0244% FS，仍然可以测量，但对于16位的ADC，1LSB代表0.00153% FS，对于测量系统将是一种挑战，尤其是settling time本身就很窄了。 <sup>[5]</sup>
+DAC的输出电压线性拟合：
 
-疑问：为什么Settling Time可以通过系统的settling time 根据下面公式推导？ <sup>[5]</sup>
+$$V_{out} = AV_{ref}\cdot \frac{Code_{ACT}}{Code_{FS}} + B$$
 
-$$\text{DAC Settling Time}=\sqrt{\text{(Total Settling Time)}^2-\text{(Op Amp Settling Time)}^2}$$
+A为增益拟合系数 A = 1+ Gain Error ，B为Offset Error。
 
-## DNL
+### DNL
 
 定义见下图 <sup>[6]</sup>:
 
@@ -134,9 +159,9 @@ $$\text{DAC Settling Time}=\sqrt{\text{(Total Settling Time)}^2-\text{(Op Amp Se
 <img src="./.assets/DNL.png" width = "50%" height = "50%" alt="图片" align=center />
 </div>
 
-|DNL|＞1LSB，将会导致输出不单调。If the DNL exceeds 1 LSB, there is a possibility that the converter can become nonmonotonic<sup>[6]</sup>.
+<font face="黑体" color=red>|DNL|＞1LSB，将会导致输出不单调。</font>If the DNL exceeds 1 LSB, there is a possibility that the converter can become nonmonotonic<sup>[6]</sup>.
 
-## INL
+### INL
 
 INL是关于非线性的误差，是指失调，增益误差被校正后，实际的传输曲线偏离理想中心线的程度。
 
@@ -155,7 +180,15 @@ INL是关于非线性的误差，是指失调，增益误差被校正后，实�
 
 1. 基本是的。Since the offset and gain error can be calibrated out from the ADC transfer curve, the actual error in the application will be dominated by INL and DNL errors <sup>[3]</sup>.
 
-## glitch
+### Settling Time
+
+通常衡量settling time的指标为输出稳定到1LSB的时间，不过，对于12位DAC，1LSB代表1/2^12 FS = 0.0244% FS，仍然可以测量，但对于16位的ADC，1LSB代表0.00153% FS，对于测量系统将是一种挑战，尤其是settling time本身就很窄了。 <sup>[5]</sup>
+
+疑问：为什么Settling Time可以通过系统的settling time 根据下面公式推导？ <sup>[5]</sup>
+
+$$\text{DAC Settling Time}=\sqrt{\text{(Total Settling Time)}^2-\text{(Op Amp Settling Time)}^2}$$
+
+### glitch
 
 这些过冲与下冲脉冲将会产生 DAC 输出信号的谐波。以正弦波二次谐波的产生为例，如下图所示 DAC 在成形正弦信号时，由过冲与下冲效应引起的脉冲信号数量在一个周期内正好是两次，从而产生了此正弦信号的二次谐波<sup>[4]</sup>.
 
@@ -179,6 +212,31 @@ Capacitive coupling frequently produces roughly equal positive and negative spik
 The glitch produced by switch timing differences is generally unipolar, much larger, and of greater concern<sup>[5]</sup>.
 
 glitch评估和测量：GLITCH IMPULSE AREA，也就是评估伏秒数，有趣。
+
+### Noise-Free Resolution Bits
+
+无噪声分辨率（好像没有常用的缩写？）
+
+判定直流性能的，与交流及频谱相关的额参数不可搞混。
+
+$$
+\begin{aligned}
+ NFRB = log_2\dfrac{FSR}{Noise_{pp}}
+\end{aligned}
+$$
+
+另外，有效值噪声分辨率 Effective Resolution （好像也没看到常用缩写）
+
+也是判定直流性能的，与交流及频谱相关的额参数不可搞混。
+
+$$
+\begin{aligned}
+ ERB = log_2\dfrac{FSR}{Noise_{rms}}
+\end{aligned}
+$$
+
+Effective resolution and noise-free resolution measure the ADC's noise performance at essentially DC,
+where spectral distortion (THD, SFDR) is not factored.
 
 ## 参考及引用
 
