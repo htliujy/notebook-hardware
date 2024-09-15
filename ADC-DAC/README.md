@@ -45,6 +45,7 @@
 - DNL: Differential nonlinearity, 微分非线性；
 - INL: Integral nonlinearity, 积分非线性
   - 非线性，对应：线性度（Linearity）
+- delay(or group delay)
 
 瞬态
 
@@ -179,6 +180,12 @@ INL是关于非线性的误差，是指失调，增益误差被校正后，实�
 解答：
 
 1. 基本是的。Since the offset and gain error can be calibrated out from the ADC transfer curve, the actual error in the application will be dominated by INL and DNL errors <sup>[3]</sup>.
+
+### delay
+
+SAR ADC 的delay时间较短，delta-sigma (ΔΣ) 的延时较长。
+
+对于交流信号而言，group delay越平坦越好。也就是delay时间是恒定值，与交流信号的频率无关，是最好的，此时相位延迟与频率成正比。
 
 ### Settling Time
 
