@@ -1,5 +1,15 @@
 # ADC DAC相关知识
 
+一些性能较好的ADC<sup>[9]</sup>:
+
+1. AD4630-24
+2. LT2500-32
+3. AD7177-2
+4. AD7175-2
+5. AD7190
+6. ADS1675
+7. ADS1262
+
 疑问：
 
 1. glitch是否引起二次谐波，原理是什么？
@@ -222,7 +232,7 @@ glitch评估和测量：GLITCH IMPULSE AREA，也就是评估伏秒数，有趣�
 
 ### Noise-Free Resolution Bits
 
-无噪声分辨率（好像没有常用的缩写？）
+无噪声分辨率（好像没有常用的缩写？）<sup>[7]</sup><sup>[8]</sup>
 
 判定直流性能的，与交流及频谱相关的额参数不可搞混。
 
@@ -234,7 +244,7 @@ $$
 
 另外，有效值噪声分辨率 Effective Resolution （好像也没看到常用缩写）
 
-也是判定直流性能的，与交流及频谱相关的额参数不可搞混。
+也是判定直流性能的，与交流及频谱相关的ENOB参数不可搞混。
 
 $$
 \begin{aligned}
@@ -253,3 +263,6 @@ where spectral distortion (THD, SFDR) is not factored.
 [4] ZHCA477-DAC34H84 HD2 性能优化与 PCB 布局建议. TI.
 [5] MT-013 TUTORIAL. Evaluating High Speed DAC Performance. by Walt Kester. Analog Devices.
 [6] SLAA013 Understanding Data Converters. TI.
+[7] AN5384 Understanding Noise, ENOB, and Effective Resolution in Analog-to-Digital Converters. maximum (ADI).
+[8] ADC的ENOB(有效位数)计算公式的推导，以及其他相关参数的介绍. <https://blog.csdn.net/cusichidouren/article/details/131356209>
+[9] How to Achieve 7.5-Digit Accuracy in Instrumentation Applications: Part 1. <https://www.analog.com/en/resources/technical-articles/achieve-7-pt-5-digits-accuracy-instrumentation-apps-part1.html>
