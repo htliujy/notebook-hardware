@@ -7,4 +7,13 @@
 - RTL8211FI-CG
 - RTL8211FDI-CG
 
+1.0V 电源：
+LDO:
+    FD,FDI
+DCDC:
+    F, FI
+
+2.5，1.8，1.5：
+    都是LDO
+
 ## 参考及引用
