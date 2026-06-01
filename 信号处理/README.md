@@ -11,6 +11,11 @@
 - dBc: decibels relative to the carrier
 - decibel: 分贝
 
+## 疑问
+
+- 什么是小信号模型，怎么应用小信号模型进行系统的稳定性分析。
+- 使用传输函数的零点和极点进行分析时，是否要求传输函数的公式要先简化到特定的格式或形式？
+
 ## 资源
 
 - Control theory seminar. TI. <https://training.ti.com/control-theory-seminar-0>
